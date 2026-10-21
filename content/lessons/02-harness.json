@@ -1,0 +1,78 @@
+{
+  "id": "harness",
+  "title": "Standard vs GitHub Copilot harness",
+  "subtitle": "Pick the right engine",
+  "icon": "🔀",
+  "badge": { "name": "Pathfinder", "icon": "🔀", "description": "Picks the right harness for the job." },
+  "card": {
+    "title": "Which harness?",
+    "lines": [
+      "Predictable, rule-based answers → Standard",
+      "Longer reasoning, many tools, files, end-to-end processes → GitHub Copilot",
+      "Grounded answers inside Copilot Chat → Copilot chat",
+      "Skills and memory → GitHub Copilot harness only",
+      "GitHub Copilot harness uses credits from the first build step"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Three engines, three jobs",
+      "text": "Everything you build in Copilot Studio runs on a **harness**.\n\n- **Standard harness** – well-defined, rule-based scenarios. You design topics and paths, so answers are **consistent and predictable**. Example: an IT help desk for common questions.\n- **GitHub Copilot harness** – reasoning-heavy, multistep work. You **describe the agent in natural language**; it plans, uses several tools, works with **large files** and adapts as it goes.\n- **Copilot chat harness** – extends **Microsoft Copilot Chat** with your company's knowledge, so people get grounded answers where they already work."
+    },
+    {
+      "type": "sort",
+      "question": "Which harness fits each Contoso scenario?",
+      "buckets": ["📏 Standard", "🧠 GitHub Copilot", "💬 Copilot chat"],
+      "items": [
+        { "text": "IT help desk: same answers every time, route password resets to a workflow", "bucket": 0 },
+        { "text": "Compare 3 large supplier spreadsheets and create a Word report", "bucket": 1 },
+        { "text": "Onboarding answers from SharePoint, right inside Copilot Chat", "bucket": 2 },
+        { "text": "A guided, step-by-step return form that must always follow the same path", "bucket": 0 },
+        { "text": "Investigate a delivery problem across several systems – the steps differ each time", "bucket": 1 },
+        { "text": "A policy FAQ for all employees in their everyday Copilot", "bucket": 2 }
+      ],
+      "explain": "**Predictable & rule-based → Standard. Reasoning, files & many tools → GitHub Copilot. Knowledge inside Copilot Chat → Copilot chat.**"
+    },
+    {
+      "type": "mcq",
+      "question": "Your agent must read three large Excel files, compare them and produce a Word report – and the steps are different every time. Which harness?",
+      "options": ["Standard harness", "GitHub Copilot harness", "Copilot chat harness", "No harness needed"],
+      "answer": 1,
+      "hint": "Large files + changing steps + creating documents.",
+      "explain": "The GitHub Copilot harness handles large files, adaptive multistep work, and can generate documents."
+    },
+    {
+      "type": "mcq",
+      "question": "Which building block is supported only in the GitHub Copilot harness?",
+      "options": ["Connectors", "SharePoint knowledge", "Skills", "Workflows"],
+      "answer": 2,
+      "explain": "**Skills** (and memory) are available in the GitHub Copilot harness. There, skills replace the prompt tool of the standard harness. Connectors, SharePoint knowledge and workflows work in both."
+    },
+    {
+      "type": "mcq",
+      "question": "When does an agent on the GitHub Copilot harness start using Copilot Credits?",
+      "options": [
+        "Only after you publish it",
+        "From the moment you start building, testing and evaluating",
+        "Never – it's included in every Microsoft 365 Copilot license",
+        "Only when more than 100 people use it"
+      ],
+      "answer": 1,
+      "explain": "The GitHub Copilot harness charges credits **from the moment you start building** – building, testing and evaluating included. The standard harness starts billing after publishing."
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "BOSS: Contoso wants an agent that answers the 30 most common IT questions exactly the same way every time and sends password resets to an existing workflow. Best start?",
+      "options": [
+        "GitHub Copilot harness – it's always better",
+        "Standard harness – predictable, rule-based answers",
+        "No agent – email IT instead",
+        "Copilot chat harness – only because it's in Copilot"
+      ],
+      "answer": 1,
+      "explain": "Well-defined, rule-based and predictable → **Standard harness**. Choose based on the job, not on what's newest."
+    }
+  ]
+}

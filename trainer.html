@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Trainer page – Copilot Studio Quest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #f0edff; }
+    .code { font-family: Consolas, monospace; font-size: 22px; font-weight: 800; color: var(--brand); }
+    .big-code { font-size: clamp(60px, 15vw, 160px); font-weight: 900; text-align: center; color: var(--brand); letter-spacing: .08em; }
+    #pick .shot { cursor: crosshair; }
+  </style>
+</head>
+<body>
+<main class="app stack" id="t">
+  <h1>🎓 Trainer page</h1>
+  <p class="muted">Not linked from the participant app. Codes here are for <b>pacing, not security</b>: anyone who reads the page source could find them.</p>
+  <div class="card stack">
+    <h2>Share the link</h2>
+    <p>Participant link: <a id="plink" href="index.html"></a></p>
+    <p class="muted small">Add <code>?workshop=name</code> to load <code>content/name.json</code> and keep that group's progress separate. Add <code>&amp;reset=1</code> to clear the progress stored on the device that opens the link.</p>
+  </div>
+  <div class="card stack">
+    <h2>Level codes & timing</h2>
+    <div id="levels">Loading…</div>
+  </div>
+  <div class="card stack">
+    <h2>Show a code full screen</h2>
+    <div class="row" id="showbtns"></div>
+    <div id="bigcode" class="big-code"></div>
+  </div>
+  <div class="card stack" id="pick">
+    <h2>🎯 Hotspot picker</h2>
+    <p class="muted">After you replace a screenshot, use this to get new <code>target</code> coordinates. Enter the image path, then drag a box across the right spot.</p>
+    <div class="codebox"><input id="imgpath" class="input" value="assets/screens/01-agent-overview.svg"><button class="btn" id="loadimg">Load</button></div>
+    <div id="pickarea"></div>
+    <pre id="pickout" class="card" style="white-space:pre-wrap"></pre>
+  </div>
+</main>
+<script>
+(async () => {
+  const qs = new URLSearchParams(location.search);
+  const ws = (qs.get('workshop') || 'workshop').toLowerCase().replace(/[^a-z0-9-]/g, '') || 'workshop';
+  const link = new URL('index.html' + (ws !== 'workshop' ? '?workshop=' + ws : ''), location.href).href;
+  const a = document.getElementById('plink'); a.href = link; a.textContent = link;
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  let cfg = await (await fetch('content/' + ws + '.json', { cache: 'no-cache' })).json().catch(() => null);
+  if (!cfg) cfg = await (await fetch('content/workshop.json', { cache: 'no-cache' })).json();
+  let t = 0, rows = '';
+  for (const [i, lv] of cfg.levels.entries()) {
+    const L = await (await fetch('content/' + lv.file, { cache: 'no-cache' })).json();
+    const missions = L.steps.filter((s) => s.type === 'mission').map((s) => s.codeWord).join(', ');
+    rows += `<tr><td>${i === 0 ? 'Start' : 'Level ' + i}</td><td>${esc(L.icon)} ${esc(L.title)}<div class="muted small">${L.steps.length} steps</div></td><td>${t}–${t + (lv.minutes || 5)} min</td><td class="code">${esc(lv.code)}</td><td>${esc(missions) || '–'}</td></tr>`;
+    t += lv.minutes || 5;
+  }
+  document.getElementById('levels').innerHTML = `<table><tr><th>#</th><th>Level</th><th>Time</th><th>Unlock code</th><th>Mission word</th></tr>${rows}</table>
+    <p class="small">Unlock-all code: <span class="code">${esc(cfg.unlockAllCode || '–')}</span> · Total ≈ ${t} min · Unlock mode: <b>${esc(cfg.unlockMode)}</b></p>`;
+  const sb = document.getElementById('showbtns');
+  cfg.levels.forEach((lv, i) => { const b = document.createElement('button'); b.className = 'btn secondary'; b.textContent = i === 0 ? 'Start' : 'L' + i; b.onclick = () => { document.getElementById('bigcode').textContent = lv.code; }; sb.append(b); });
+
+  // Hotspot picker
+  const area = document.getElementById('pickarea'), out = document.getElementById('pickout');
+  document.getElementById('loadimg').onclick = () => {
+    area.innerHTML = ''; const box = document.createElement('div'); box.className = 'shot';
+    const img = document.createElement('img'); img.src = document.getElementById('imgpath').value; img.draggable = false; box.append(img); area.append(box);
+    let start = null, rect = null;
+    const pct = (e) => { const r = box.getBoundingClientRect(); return { x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 }; };
+    box.onpointerdown = (e) => { start = pct(e); rect?.remove(); rect = document.createElement('span'); rect.className = 'target-box'; box.append(rect); box.setPointerCapture(e.pointerId); };
+    box.onpointermove = (e) => { if (!start) return; const p = pct(e); const x = Math.min(start.x, p.x), y = Math.min(start.y, p.y), w = Math.abs(p.x - start.x), h = Math.abs(p.y - start.y); Object.assign(rect.style, { left: x + '%', top: y + '%', width: w + '%', height: h + '%' }); out.textContent = `"target": { "x": ${x.toFixed(0)}, "y": ${y.toFixed(0)}, "w": ${Math.max(1, w).toFixed(0)}, "h": ${Math.max(1, h).toFixed(0)} }\n\nFor a callout dot use: "x": ${p.x.toFixed(0)}, "y": ${p.y.toFixed(0)}`; };
+    box.onpointerup = () => { start = null; };
+  };
+})();
+</script>
+</body>
+</html>

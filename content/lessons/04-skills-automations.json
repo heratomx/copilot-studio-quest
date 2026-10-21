@@ -1,0 +1,77 @@
+{
+  "id": "skills",
+  "title": "Knowledge, skills & automations",
+  "subtitle": "Make your agent do things",
+  "icon": "⚡",
+  "badge": { "name": "Automation Ace", "icon": "⚡", "description": "Connects agents to knowledge and actions." },
+  "card": {
+    "title": "Which building block?",
+    "lines": [
+      "Knowledge – sources to answer from",
+      "Tools – single actions in a system",
+      "Workflows – several automated steps in a row",
+      "Skills – reusable know-how, loaded when needed",
+      "Triggers – start the agent when something happens"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "From answering to doing",
+      "text": "- **Knowledge** – the sources the agent answers from: SharePoint, files, websites, Dataverse.\n- **Tools** – single actions in other systems through connectors, MCP servers or REST APIs. Example: create a ticket.\n- **Workflows** – several automated steps the agent can start. Example: onboarding a new hire.\n- **Skills** – reusable, packaged know-how (instructions, templates, rules) the agent uses when relevant. Available in the GitHub Copilot harness.\n- **Triggers** – start the agent automatically when something happens, such as a new email.\n\n**Remember:** the agent is only as good as its sources. Old or duplicate files lead to wrong answers."
+    },
+    {
+      "type": "sort",
+      "question": "Knowledge, tool, workflow or skill?",
+      "buckets": ["📚 Knowledge", "🔧 Tool", "🔁 Workflow", "🎓 Skill"],
+      "items": [
+        { "text": "Store opening hours on the Contoso website", "bucket": 0 },
+        { "text": "Create a repair ticket for a broken espresso machine", "bucket": 1 },
+        { "text": "New hire added → send welcome mail, request accounts, book training", "bucket": 2 },
+        { "text": "Contoso's standard way to write an incident report (template + rules)", "bucket": 3 },
+        { "text": "Supplier price list in Excel", "bucket": 0 },
+        { "text": "Look up an order in the ordering system", "bucket": 1 }
+      ],
+      "explain": "Knowledge = **know**. Tool = **do one thing**. Workflow = **do several steps**. Skill = **know-how on how to do a job well**."
+    },
+    {
+      "type": "multi",
+      "question": "Spot the bad sources! Which of these should NOT be knowledge for the HR agent? (pick all that apply)",
+      "image": "assets/screens/04-knowledge-sources.svg",
+      "options": [
+        "HR Handbook 2026 – official HR SharePoint site",
+        "HR Handbook 2019 – old copy.pdf",
+        "Copy of Copy of Vacation rules FINAL v3.docx (personal OneDrive)",
+        "Shift Policy 2026 – owner HR, reviewed monthly",
+        "Wikipedia article about coffee"
+      ],
+      "answers": [1, 2, 4],
+      "explain": "Use **one official, current, owned** source. Old copies and personal drafts cause conflicting answers, and off-topic sources add noise."
+    },
+    {
+      "type": "mcq",
+      "question": "Every time a supplier emails an invoice, an agent should check it and file it. What starts the agent?",
+      "options": [
+        "A person must type a message to the agent",
+        "A trigger – for example \"when a new email arrives\"",
+        "The agent checks the mailbox when it feels like it",
+        "A knowledge source"
+      ],
+      "answer": 1,
+      "explain": "**Triggers** let agents start on events, without anyone chatting. Combine them with approvals for important actions."
+    },
+    {
+      "type": "mcq",
+      "question": "Your agent says \"I don't know\" to a question you KNOW is in the handbook. Most likely cause?",
+      "options": [
+        "The model is broken",
+        "The file isn't added or indexed yet, or the user can't access it",
+        "Agents can't read handbooks",
+        "The question was too polite"
+      ],
+      "answer": 1,
+      "hint": "Think about the source and who can open it.",
+      "explain": "Check that the source is added and finished indexing, and that the user has permission to it. Agents answer only from what the user is allowed to see."
+    }
+  ]
+}

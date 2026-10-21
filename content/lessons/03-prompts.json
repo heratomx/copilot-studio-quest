@@ -1,0 +1,70 @@
+{
+  "id": "prompt",
+  "title": "Writing great instructions",
+  "subtitle": "Prompts that work",
+  "icon": "✍️",
+  "badge": { "name": "Prompt Pro", "icon": "✍️", "description": "Writes instructions an agent can follow." },
+  "card": {
+    "title": "The G-C-S-E-G formula",
+    "lines": [
+      "Goal – what should the agent do?",
+      "Context – for whom, and why?",
+      "Source – where does the answer come from?",
+      "Expectations – format, length, tone",
+      "Guardrails – what to do when unsure or not allowed"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "The G-C-S-E-G formula",
+      "text": "Good instructions answer five questions:\n\n- **G**oal – what should the agent do?\n- **C**ontext – who is it for and why?\n- **S**ource – where must the answer come from?\n- **E**xpectations – format, length, tone\n- **G**uardrails – what to do when it doesn't know or isn't allowed\n\n❌ *\"Help employees with HR stuff.\"*\n\n✅ *\"You help Contoso Coffee baristas with HR questions. Answer only from the HR Handbook on SharePoint. Use at most 5 bullet points and a friendly tone. If the answer isn't in the handbook, say so and refer them to hr@contoso.com.\"*"
+    },
+    {
+      "type": "mcq",
+      "question": "Which instruction will give the best agent?",
+      "options": [
+        "Help employees with HR stuff.",
+        "You help Contoso Coffee baristas with shift questions. Answer only from the Shift Policy on SharePoint, in max. 4 bullets. If it isn't covered, say so and refer them to their store manager.",
+        "You are the best HR agent ever. Be amazing and super helpful!",
+        "Answer every question about everything."
+      ],
+      "answer": 1,
+      "hint": "Count the parts of the formula in each option.",
+      "explain": "Option 2 has a goal, an audience, a source, a format and a guardrail. The others are vague."
+    },
+    {
+      "type": "multi",
+      "question": "\"Answer baristas' questions about shift swaps in a friendly way.\" What's MISSING? (pick all that apply)",
+      "options": ["A goal", "An audience", "A source of truth", "Guardrails – what to do when it doesn't know"],
+      "answers": [2, 3],
+      "explain": "Goal (answer shift-swap questions) and audience (baristas) are there. Missing: **where** answers come from and **what to do** when the agent doesn't know."
+    },
+    {
+      "type": "order",
+      "question": "Put the parts of this instruction into a logical order.",
+      "items": [
+        "You are Contoso Coffee's Shift Helper for store staff.",
+        "Help staff swap shifts and understand the shift rules.",
+        "Use only the 'Shift Policy 2026' document.",
+        "Answer in max. 4 bullet points, in a friendly tone.",
+        "If a swap needs manager approval, say so – never confirm it yourself."
+      ],
+      "explain": "Role/context → goal → source → expectations → guardrails. Order matters less than **completeness**, but a clear structure makes instructions easy to maintain."
+    },
+    {
+      "type": "prompt",
+      "title": "Upgrade challenge",
+      "scenario": "Write instructions for an agent that helps Contoso store managers order coffee supplies.",
+      "minScore": 4,
+      "example": "You help Contoso Coffee store managers order supplies. Answer only from the 'Supplier Catalog 2026' file. Show products in a short table with name, price and delivery time. Use a friendly, short tone. Never place an order yourself – ask the manager to confirm first. If an item isn't in the catalog, say so and refer them to purchasing@contoso.com."
+    },
+    {
+      "type": "mission",
+      "title": "Hands-on mission (bonus)",
+      "text": "In Copilot Studio, create an agent and paste your instructions from the last step. Then add this line at the end:\n\n**When someone writes HELLO QUEST, reply with the word ESPRESSO.**\n\nTest it in the test pane. Type the word your agent replied with.",
+      "codeWord": "ESPRESSO",
+      "bonusXp": 30
+    }
+  ]
+}

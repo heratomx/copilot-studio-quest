@@ -1,0 +1,88 @@
+{
+  "id": "control",
+  "title": "Staying in control",
+  "subtitle": "Approvals, data safety & costs",
+  "icon": "🛡️",
+  "badge": { "name": "Data Guardian", "icon": "🛡️", "description": "Keeps people, data and budgets safe." },
+  "card": {
+    "title": "Stay in control",
+    "lines": [
+      "Important actions → a human approves first",
+      "Use official sources + user sign-in for permissions",
+      "No confidential data in broadly shared agents",
+      "Test first, then share with a small group",
+      "Watch credits on the agent's Monitor page"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "You are the pilot",
+      "text": "- **Approvals (human in the loop)** – before important or irreversible actions, such as orders, payments or emails to many people, a person approves.\n- **Permissions** – with user sign-in, the agent answers only from what that person is allowed to see.\n- **Data** – never put confidential data, like salaries or health data, into an agent everyone can use.\n- **Sharing** – test first, then share with a small pilot group, then expand.\n- **Admin guardrails** – your IT admins set policies, for example which connectors are allowed.\n- **Costs** – agents use **Copilot Credits**. Your admin assigns credits; you can see your agent's usage on its **Monitor** page."
+    },
+    {
+      "type": "swipe",
+      "question": "Safe or risky?",
+      "left": "⚠️ Risky",
+      "right": "✅ Safe",
+      "cards": [
+        { "text": "Upload the full salary list so the agent can answer pay questions for everyone", "answer": "left", "why": "Confidential data in a shared agent – anyone could ask for it." },
+        { "text": "Use the official HR SharePoint site as knowledge, with user sign-in", "answer": "right", "why": "Official source, and people only see what they are allowed to see." },
+        { "text": "Let the agent email all 2,000 customers without anyone checking", "answer": "left", "why": "High-impact action with no human approval." },
+        { "text": "A manager approves supply orders over €500 before they are sent", "answer": "right", "why": "Human in the loop for important actions." },
+        { "text": "Share your untested agent with the whole company on day one", "answer": "left", "why": "Test first, then pilot with a small group." },
+        { "text": "Tell the agent to say \"I don't know\" and link to HR when unsure", "answer": "right", "why": "A clear guardrail beats a confident wrong answer." }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Approve or block? The agent wants to cancel a supplier contract because of one late delivery.",
+      "options": [
+        "Let it cancel – it's faster",
+        "Pause and ask a human to approve first",
+        "Cancel and send an apology later",
+        "Ignore the late delivery"
+      ],
+      "answer": 1,
+      "explain": "Irreversible, high-impact actions need a **human approval step**."
+    },
+    {
+      "type": "multi",
+      "question": "On the GitHub Copilot harness, which of these can use Copilot Credits? (pick all that apply)",
+      "options": [
+        "Building the agent by describing it in natural language",
+        "Testing it in the test pane",
+        "Running evaluations",
+        "People chatting with the published agent",
+        "Reading Microsoft Learn docs about agents"
+      ],
+      "answers": [0, 1, 2, 3],
+      "explain": "Building, testing, evaluating **and** running the agent can all use credits. Reading the docs is free 😉"
+    },
+    {
+      "type": "mcq",
+      "question": "Where can you see how many Copilot Credits your agent used?",
+      "options": [
+        "On the agent's Monitor page in Copilot Studio",
+        "On the Contoso intranet",
+        "In the agent's instructions",
+        "Nowhere – it's a secret"
+      ],
+      "answer": 0,
+      "explain": "The **Monitor** page shows your agent's consumption. Your admin sees totals for environments and the tenant, and assigns credits – ask them if you need more."
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "BOSS: Which habit wastes the MOST credits?",
+      "options": [
+        "Writing clear instructions before you start building",
+        "Testing a few realistic questions after each change",
+        "Re-running the same long test conversation again and again without changing anything",
+        "Using one trusted knowledge source"
+      ],
+      "answer": 2,
+      "explain": "Plan first, then test with purpose. Each run uses credits – repeating identical tests teaches you nothing new."
+    }
+  ]
+}

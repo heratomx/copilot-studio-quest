@@ -1,0 +1,83 @@
+{
+  "id": "how",
+  "title": "How Copilot Studio works",
+  "subtitle": "The anatomy of an agent",
+  "icon": "🏗️",
+  "badge": { "name": "Architect", "icon": "🏗️", "description": "Knows what an agent is made of." },
+  "card": {
+    "title": "Agent anatomy",
+    "lines": [
+      "Instructions – how the agent behaves",
+      "Knowledge – what it answers from",
+      "Tools – what it can do (connectors, MCP, APIs)",
+      "Harness – the engine between model and agent",
+      "Channels – where people use it (Teams, Copilot, web)"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Every agent has the same building blocks",
+      "text": "When you open an agent in Copilot Studio you see its building blocks. Tap the numbers to learn what each one does.",
+      "image": "assets/screens/01-agent-overview.svg",
+      "callouts": [
+        { "x": 30, "y": 25, "label": "Instructions – how the agent should behave, its tone and its limits" },
+        { "x": 30, "y": 50, "label": "Knowledge – the sources it answers from (SharePoint, files, websites…)" },
+        { "x": 30, "y": 75, "label": "Tools – actions it can take (connectors, MCP servers, workflows)" },
+        { "x": 82, "y": 30, "label": "Test pane – chat with your agent before anyone else does" },
+        { "x": 88, "y": 8, "label": "Publish – make the agent available in Teams, Copilot or a website" }
+      ]
+    },
+    {
+      "type": "info",
+      "title": "Model + harness = the engine",
+      "text": "The **model** does the thinking: it understands the question and writes the answer.\n\nThe **harness** is the engine around it. It decides when to call the model, what to send it (instructions, knowledge, tool results), reads what comes back and calls the right tools.\n\n**You** design the agent. The harness and the model do the rest."
+    },
+    {
+      "type": "sort",
+      "question": "Put each piece into the right building block.",
+      "buckets": ["📝 Instructions", "📚 Knowledge", "🔧 Tools"],
+      "items": [
+        { "text": "The HR handbook on SharePoint", "bucket": 1 },
+        { "text": "\"Always answer in a friendly tone\"", "bucket": 0 },
+        { "text": "Create a repair ticket for a broken espresso machine", "bucket": 2 },
+        { "text": "The public Contoso Coffee website", "bucket": 1 },
+        { "text": "\"Never give legal advice\"", "bucket": 0 },
+        { "text": "Send an email through Outlook", "bucket": 2 }
+      ],
+      "explain": "**Instructions** shape behavior, **knowledge** is what the agent knows, and **tools** let it take action."
+    },
+    {
+      "type": "hotspot",
+      "question": "Find it! Where would you click to add the HR handbook so the agent can answer from it?",
+      "image": "assets/screens/01-agent-overview.svg",
+      "target": { "x": 49, "y": 44, "w": 13, "h": 9 },
+      "hint": "The handbook is something the agent should KNOW.",
+      "explain": "Use **+ Add knowledge** to connect SharePoint sites, files or websites."
+    },
+    {
+      "type": "order",
+      "question": "A barista asks \"How many vacation days do I get?\" Put the steps in the right order.",
+      "items": [
+        "The barista asks the question in Teams",
+        "The harness and model work out what is needed",
+        "The agent searches the HR knowledge source",
+        "The model writes an answer from what it found",
+        "The answer appears with a citation to the source"
+      ],
+      "explain": "Question → plan → search knowledge → generate answer → show it **with a citation** so people can check it."
+    },
+    {
+      "type": "mcq",
+      "question": "The agent's answer sounds great. How can the barista check where it came from?",
+      "options": [
+        "Trust it – AI is always right",
+        "Look at the citation that links to the source",
+        "Ask the agent to promise it is correct",
+        "Call IT support"
+      ],
+      "answer": 1,
+      "explain": "Knowledge-based answers can show **citations**. Teach users to click them – it builds trust and catches mistakes."
+    }
+  ]
+}

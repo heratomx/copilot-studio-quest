@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   build_and_deploy_job:
@@ -20,11 +21,18 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v7
+      - name: Get GitHub identity token
+        uses: actions/github-script@v9
+        id: idtoken
+        with:
+          script: return await core.getIDToken()
+          result-encoding: string
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_FIELD_0F2B7FB0F }}
+          github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "upload"
           app_location: "/"
           api_location: ""
@@ -36,9 +44,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
+      - name: Get GitHub identity token
+        uses: actions/github-script@v9
+        id: idtoken
+        with:
+          script: return await core.getIDToken()
+          result-encoding: string
       - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_FIELD_0F2B7FB0F }}
+          github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "close"

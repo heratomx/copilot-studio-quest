@@ -36,6 +36,8 @@ Open http://localhost:8080 for participants, and http://localhost:8080/trainer.h
 3. This repo uses `.github/workflows/azure-static-web-apps-witty-field-0f2b7fb0f.yml` and the GitHub secret `AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_FIELD_0F2B7FB0F` created by Azure. Keep only one deployment workflow. The app is plain HTML, CSS and JavaScript, so the workflow sets `skip_app_build: true`; no npm install or build step is needed.
 4. Every push to `main` redeploys. Share the `https://<name>.azurestaticapps.net` link, for example as a QR code on your first slide.
 
+The workflow also supplies a short-lived GitHub identity token for Azure's GitHub deployment authorization policy. It uses the built-in client in `actions/github-script`, so it does not install npm packages into the app.
+
 The site is public by default. Don't add authentication, or participants will have to sign in.
 
 Azure hosting and GitHub Actions have separate billing. Standard GitHub-hosted Actions runners are free for public repositories; private repositories have a limited free allowance.

@@ -578,7 +578,7 @@
       const why = el('div');
       const leftBtn = el('button', { class: 'btn secondary', onclick: () => answer('left') }, step.left);
       const rightBtn = el('button', { class: 'btn secondary', onclick: () => answer('right') }, step.right);
-      let cardEl;
+      let cardEl, advanceTimer = null;
       const show = () => {
         clear(wrap); clear(why);
         if (i >= cards.length) {
@@ -596,14 +596,26 @@
         wrap.append(cardEl);
         leftBtn.disabled = rightBtn.disabled = false;
       };
+      const advance = () => {
+        if (advanceTimer === null) return;
+        clearTimeout(advanceTimer); advanceTimer = null;
+        if (!document.body.contains(wrap)) return;
+        const restoreFocus = why.contains(document.activeElement);
+        i++; show();
+        if (restoreFocus && i < cards.length) cardEl.focus({ preventScroll: true });
+      };
       const answer = (side) => {
         if (i >= cards.length || leftBtn.disabled) return;
         leftBtn.disabled = rightBtn.disabled = true;
         const card = cards[i]; const good = card.answer === side; if (good) ok++;
         beep(good ? 'good' : 'bad');
         cardEl.classList.add(side === 'left' ? 'go-left' : 'go-right');
-        why.append(el('div', { class: 'feedback ' + (good ? 'good' : 'bad') }, el('b', {}, good ? '✅ ' : '❌ '), card.why || ''));
-        setTimeout(() => { if (!document.body.contains(wrap)) return; i++; show(); }, good ? 1300 : 2400);
+        const next = el('button', { class: 'btn ghost small', onclick: advance }, t(i === cards.length - 1 ? 'swipeFinish' : 'swipeNext'));
+        why.append(
+          el('div', { class: 'feedback ' + (good ? 'good' : 'bad'), role: 'status' }, el('b', {}, good ? '✅ ' : '❌ '), card.why || ''),
+          el('div', { class: 'row actions' }, el('div', { class: 'spacer' }), next));
+        advanceTimer = setTimeout(advance, 6000);
+        next.focus({ preventScroll: true });
       };
       const onKey = (e) => {
         if (!document.body.contains(wrap)) { document.removeEventListener('keydown', onKey); return; }

@@ -51,6 +51,7 @@ Full run of show, scripts and troubleshooting: see **TRAINER-GUIDE.md**.
 
 - **Trainer page:** `/trainer.html` shows every level's unlock code, timing and mission code word. It also has a big-screen code display and a hotspot picker. It isn't linked from the app.
 - **Pacing:** levels unlock one after another. After each section, show the next code. Late joiners enter the current code on the map, which unlocks that level and every level before it.
+- **Swipe questions:** each answer explanation stays visible for 6 seconds. Use **Next question** (or **See results** on the last card) to move on sooner.
 - **Unlock everything:** `OPENALL` (change it in `content/workshop.json`). To start with all levels open, set `"unlockMode": "open"`.
 - **Codes control pacing, not security.** Anyone who reads the page source can find them. That's fine for a workshop.
 - **Separate groups:** `?workshop=customer-a` loads `content/customer-a.json` (or falls back to `workshop.json`) and stores progress separately.

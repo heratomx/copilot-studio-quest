@@ -578,7 +578,7 @@
       const why = el('div');
       const leftBtn = el('button', { class: 'btn secondary', onclick: () => answer('left') }, step.left);
       const rightBtn = el('button', { class: 'btn secondary', onclick: () => answer('right') }, step.right);
-      let cardEl, advanceTimer = null;
+      let cardEl, advanceTimer = null, countdownTimer = null;
       const show = () => {
         clear(wrap); clear(why);
         if (i >= cards.length) {
@@ -599,6 +599,7 @@
       const advance = () => {
         if (advanceTimer === null) return;
         clearTimeout(advanceTimer); advanceTimer = null;
+        clearInterval(countdownTimer); countdownTimer = null;
         if (!document.body.contains(wrap)) return;
         const restoreFocus = why.contains(document.activeElement);
         i++; show();
@@ -610,11 +611,18 @@
         const card = cards[i]; const good = card.answer === side; if (good) ok++;
         beep(good ? 'good' : 'bad');
         cardEl.classList.add(side === 'left' ? 'go-left' : 'go-right');
+        const delay = 6000, deadline = Date.now() + delay;
+        const countdownKey = i === cards.length - 1 ? 'swipeFinishCountdown' : 'swipeCountdown';
+        const countdown = el('span', { class: 'muted small', role: 'timer', 'aria-live': 'off' }, t(countdownKey, { seconds: delay / 1000 }));
         const next = el('button', { class: 'btn ghost small', onclick: advance }, t(i === cards.length - 1 ? 'swipeFinish' : 'swipeNext'));
         why.append(
           el('div', { class: 'feedback ' + (good ? 'good' : 'bad'), role: 'status' }, el('b', {}, good ? '✅ ' : '❌ '), card.why || ''),
-          el('div', { class: 'row actions' }, el('div', { class: 'spacer' }), next));
-        advanceTimer = setTimeout(advance, 6000);
+          el('div', { class: 'row actions' }, countdown, el('div', { class: 'spacer' }), next));
+        countdownTimer = setInterval(() => {
+          if (!document.body.contains(wrap)) { clearInterval(countdownTimer); countdownTimer = null; return; }
+          countdown.textContent = t(countdownKey, { seconds: Math.max(0, Math.ceil((deadline - Date.now()) / 1000)) });
+        }, 1000);
+        advanceTimer = setTimeout(advance, delay);
         next.focus({ preventScroll: true });
       };
       const onKey = (e) => {

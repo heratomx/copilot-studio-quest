@@ -3,7 +3,11 @@
   "title": "Knowledge, skills & automations",
   "subtitle": "Make your agent do things",
   "icon": "⚡",
-  "badge": { "name": "Automation Ace", "icon": "⚡", "description": "Connects agents to knowledge and actions." },
+  "badge": {
+    "name": "Automation Ace",
+    "icon": "⚡",
+    "description": "Connects agents to knowledge and actions."
+  },
   "card": {
     "title": "Which building block?",
     "lines": [
@@ -23,14 +27,37 @@
     {
       "type": "sort",
       "question": "Knowledge, tool, workflow or skill?",
-      "buckets": ["📚 Knowledge", "🔧 Tool", "🔁 Workflow", "🎓 Skill"],
+      "buckets": [
+        "📚 Knowledge",
+        "🔧 Tool",
+        "🔁 Workflow",
+        "🎓 Skill"
+      ],
       "items": [
-        { "text": "Store opening hours on the Contoso website", "bucket": 0 },
-        { "text": "Create a repair ticket for a broken espresso machine", "bucket": 1 },
-        { "text": "New hire added → send welcome mail, request accounts, book training", "bucket": 2 },
-        { "text": "Contoso's standard way to write an incident report (template + rules)", "bucket": 3 },
-        { "text": "Supplier price list in Excel", "bucket": 0 },
-        { "text": "Look up an order in the ordering system", "bucket": 1 }
+        {
+          "text": "Store opening hours on the Contoso website",
+          "bucket": 0
+        },
+        {
+          "text": "Create a repair ticket for a broken espresso machine",
+          "bucket": 1
+        },
+        {
+          "text": "New hire added → send welcome mail, request accounts, book training",
+          "bucket": 2
+        },
+        {
+          "text": "Contoso's standard way to write an incident report (template + rules)",
+          "bucket": 3
+        },
+        {
+          "text": "Supplier price list in Excel",
+          "bucket": 0
+        },
+        {
+          "text": "Look up an order in the ordering system",
+          "bucket": 1
+        }
       ],
       "explain": "Knowledge = **know**. Tool = **do one thing**. Workflow = **do several steps**. Skill = **know-how on how to do a job well**."
     },
@@ -45,7 +72,11 @@
         "Shift Policy 2026 – owner HR, reviewed monthly",
         "Wikipedia article about coffee"
       ],
-      "answers": [1, 2, 4],
+      "answers": [
+        1,
+        2,
+        4
+      ],
       "explain": "Use **one official, current, owned** source. Old copies and personal drafts cause conflicting answers, and off-topic sources add noise."
     },
     {
@@ -73,5 +104,22 @@
       "hint": "Think about the source and who can open it.",
       "explain": "Check that the source is added and finished indexing, and that the user has permission to it. Agents answer only from what the user is allowed to see."
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Knowledge = know, tool = do one thing, workflow = do several steps, skill = know-how for doing a job well.",
+      "Use one official, current source with a clear owner – remove old copies and personal drafts.",
+      "If the agent says \"I don't know\", check: is the source added, finished indexing, and can the user access it?"
+    ],
+    "links": [
+      {
+        "title": "Add knowledge sources to an agent",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/knowledge-add-existing-copilot"
+      },
+      {
+        "title": "Generative orchestration: tools, topics & triggers",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/generative-orchestration"
+      }
+    ]
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "name": "copilot-studio-quest-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live results API for Copilot Studio Quest (Azure Static Web Apps managed functions). No dependencies.",
+  "engines": { "node": ">=20" }
+}

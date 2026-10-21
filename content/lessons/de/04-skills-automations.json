@@ -1,0 +1,125 @@
+{
+  "id": "skills",
+  "title": "Wissen, Skills & Automatisierung",
+  "subtitle": "Lass deinen Agenten handeln",
+  "icon": "⚡",
+  "badge": {
+    "name": "Automatisierungs-Ass",
+    "icon": "⚡",
+    "description": "Verbindet Agenten mit Wissen und Aktionen."
+  },
+  "card": {
+    "title": "Welcher Baustein?",
+    "lines": [
+      "Wissen – Quellen, aus denen geantwortet wird",
+      "Tools – einzelne Aktionen in einem System",
+      "Workflows – mehrere automatisierte Schritte nacheinander",
+      "Skills – wiederverwendbares Know-how, bei Bedarf geladen",
+      "Trigger – starten den Agenten, wenn etwas passiert"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Vom Antworten zum Handeln",
+      "text": "- **Wissen** – die Quellen, aus denen der Agent antwortet: SharePoint, Dateien, Websites, Dataverse.\n- **Tools** – einzelne Aktionen in anderen Systemen über Konnektoren, MCP-Server oder REST-APIs. Beispiel: ein Ticket erstellen.\n- **Workflows** – mehrere automatisierte Schritte, die der Agent starten kann. Beispiel: Onboarding neuer Mitarbeitender.\n- **Skills** – wiederverwendbares, gebündeltes Know-how (Anweisungen, Vorlagen, Regeln), das der Agent nutzt, wenn es passt. Verfügbar im GitHub-Copilot-Harness.\n- **Trigger** – starten den Agenten automatisch, wenn etwas passiert, zum Beispiel bei einer neuen E-Mail.\n\n**Merke:** Der Agent ist nur so gut wie seine Quellen. Alte oder doppelte Dateien führen zu falschen Antworten."
+    },
+    {
+      "type": "sort",
+      "question": "Wissen, Tool, Workflow oder Skill?",
+      "buckets": [
+        "📚 Wissen",
+        "🔧 Tool",
+        "🔁 Workflow",
+        "🎓 Skill"
+      ],
+      "items": [
+        {
+          "text": "Öffnungszeiten der Filialen auf der Contoso-Website",
+          "bucket": 0
+        },
+        {
+          "text": "Ein Reparaturticket für eine kaputte Espressomaschine erstellen",
+          "bucket": 1
+        },
+        {
+          "text": "Neue Person eingestellt → Willkommensmail senden, Konten beantragen, Schulung buchen",
+          "bucket": 2
+        },
+        {
+          "text": "Contosos Standardweg für Störungsberichte (Vorlage + Regeln)",
+          "bucket": 3
+        },
+        {
+          "text": "Lieferanten-Preisliste in Excel",
+          "bucket": 0
+        },
+        {
+          "text": "Eine Bestellung im Bestellsystem nachschlagen",
+          "bucket": 1
+        }
+      ],
+      "explain": "Wissen = **wissen**. Tool = **eine Sache tun**. Workflow = **mehrere Schritte tun**. Skill = **Know-how, wie man eine Aufgabe gut erledigt**."
+    },
+    {
+      "type": "multi",
+      "question": "Finde die schlechten Quellen! Welche davon sollten NICHT Wissen für den HR-Agenten sein? (alle zutreffenden wählen)",
+      "image": "assets/screens/04-knowledge-sources.svg",
+      "options": [
+        "HR-Handbuch 2026 – offizielle HR-SharePoint-Website",
+        "HR-Handbuch 2019 – alte Kopie.pdf",
+        "Kopie von Kopie von Urlaubsregeln FINAL v3.docx (persönliches OneDrive)",
+        "Schichtrichtlinie 2026 – Verantwortlich: HR, monatlich geprüft",
+        "Wikipedia-Artikel über Kaffee"
+      ],
+      "answers": [
+        1,
+        2,
+        4
+      ],
+      "explain": "Nutze **eine offizielle, aktuelle Quelle mit klarer Verantwortung**. Alte Kopien und persönliche Entwürfe führen zu widersprüchlichen Antworten, themenfremde Quellen erzeugen Rauschen."
+    },
+    {
+      "type": "mcq",
+      "question": "Jedes Mal, wenn ein Lieferant eine Rechnung mailt, soll ein Agent sie prüfen und ablegen. Was startet den Agenten?",
+      "options": [
+        "Eine Person muss dem Agenten eine Nachricht schreiben",
+        "Ein Trigger – zum Beispiel „wenn eine neue E-Mail eintrifft“",
+        "Der Agent schaut ins Postfach, wenn ihm danach ist",
+        "Eine Wissensquelle"
+      ],
+      "answer": 1,
+      "explain": "Mit **Triggern** starten Agenten bei Ereignissen, ohne dass jemand chattet. Kombiniere sie bei wichtigen Aktionen mit Genehmigungen."
+    },
+    {
+      "type": "mcq",
+      "question": "Dein Agent sagt „Das weiß ich nicht“ zu einer Frage, die DEFINITIV im Handbuch steht. Wahrscheinlichste Ursache?",
+      "options": [
+        "Das Modell ist kaputt",
+        "Die Datei ist nicht hinzugefügt oder noch nicht indiziert, oder die Person hat keinen Zugriff darauf",
+        "Agenten können keine Handbücher lesen",
+        "Die Frage war zu höflich"
+      ],
+      "answer": 1,
+      "hint": "Denk an die Quelle und daran, wer sie öffnen darf.",
+      "explain": "Prüfe, ob die Quelle hinzugefügt und fertig indiziert ist und ob die Person Zugriff darauf hat. Agenten antworten nur aus Inhalten, die die jeweilige Person sehen darf."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Wissen = wissen, Tool = eine Sache tun, Workflow = mehrere Schritte tun, Skill = Know-how, wie man eine Aufgabe gut erledigt.",
+      "Nutze eine offizielle, aktuelle Quelle mit klarer Verantwortung – entferne alte Kopien und persönliche Entwürfe.",
+      "Wenn der Agent „Das weiß ich nicht“ sagt, prüfe: Ist die Quelle hinzugefügt, fertig indiziert und hat die Person Zugriff?"
+    ],
+    "links": [
+      {
+        "title": "Wissensquellen zu einem Agenten hinzufügen",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/agents-experience/knowledge-add-existing-copilot"
+      },
+      {
+        "title": "Generative Orchestrierung: Tools, Themen & Trigger",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/guidance/generative-orchestration"
+      }
+    ]
+  }
+}

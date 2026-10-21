@@ -3,7 +3,11 @@
   "title": "Staying in control",
   "subtitle": "Approvals, data safety & costs",
   "icon": "🛡️",
-  "badge": { "name": "Data Guardian", "icon": "🛡️", "description": "Keeps people, data and budgets safe." },
+  "badge": {
+    "name": "Data Guardian",
+    "icon": "🛡️",
+    "description": "Keeps people, data and budgets safe."
+  },
   "card": {
     "title": "Stay in control",
     "lines": [
@@ -26,12 +30,36 @@
       "left": "⚠️ Risky",
       "right": "✅ Safe",
       "cards": [
-        { "text": "Upload the full salary list so the agent can answer pay questions for everyone", "answer": "left", "why": "Confidential data in a shared agent – anyone could ask for it." },
-        { "text": "Use the official HR SharePoint site as knowledge, with user sign-in", "answer": "right", "why": "Official source, and people only see what they are allowed to see." },
-        { "text": "Let the agent email all 2,000 customers without anyone checking", "answer": "left", "why": "High-impact action with no human approval." },
-        { "text": "A manager approves supply orders over €500 before they are sent", "answer": "right", "why": "Human in the loop for important actions." },
-        { "text": "Share your untested agent with the whole company on day one", "answer": "left", "why": "Test first, then pilot with a small group." },
-        { "text": "Tell the agent to say \"I don't know\" and link to HR when unsure", "answer": "right", "why": "A clear guardrail beats a confident wrong answer." }
+        {
+          "text": "Upload the full salary list so the agent can answer pay questions for everyone",
+          "answer": "left",
+          "why": "Confidential data in a shared agent – anyone could ask for it."
+        },
+        {
+          "text": "Use the official HR SharePoint site as knowledge, with user sign-in",
+          "answer": "right",
+          "why": "Official source, and people only see what they are allowed to see."
+        },
+        {
+          "text": "Let the agent email all 2,000 customers without anyone checking",
+          "answer": "left",
+          "why": "High-impact action with no human approval."
+        },
+        {
+          "text": "A manager approves supply orders over €500 before they are sent",
+          "answer": "right",
+          "why": "Human in the loop for important actions."
+        },
+        {
+          "text": "Share your untested agent with the whole company on day one",
+          "answer": "left",
+          "why": "Test first, then pilot with a small group."
+        },
+        {
+          "text": "Tell the agent to say \"I don't know\" and link to HR when unsure",
+          "answer": "right",
+          "why": "A clear guardrail beats a confident wrong answer."
+        }
       ]
     },
     {
@@ -56,7 +84,12 @@
         "People chatting with the published agent",
         "Reading Microsoft Learn docs about agents"
       ],
-      "answers": [0, 1, 2, 3],
+      "answers": [
+        0,
+        1,
+        2,
+        3
+      ],
       "explain": "Building, testing, evaluating **and** running the agent can all use credits. Reading the docs is free 😉"
     },
     {
@@ -84,5 +117,22 @@
       "answer": 2,
       "explain": "Plan first, then test with purpose. Each run uses credits – repeating identical tests teaches you nothing new."
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Add a human approval before irreversible or high-impact actions.",
+      "Never put confidential data into a broadly shared agent – instructions are not a lock.",
+      "Test, pilot with a small group, then share – and watch credits on the agent's Monitor page."
+    ],
+    "links": [
+      {
+        "title": "Usage-based billing with Copilot Credits",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/billing-credit-overview"
+      },
+      {
+        "title": "Manage costs (admin guide)",
+        "url": "https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness"
+      }
+    ]
+  }
 }

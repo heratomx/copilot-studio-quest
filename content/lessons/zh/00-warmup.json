@@ -1,0 +1,76 @@
+{
+  "id": "warmup",
+  "title": "欢迎来到 Contoso Coffee",
+  "subtitle": "用 Copilot，还是建智能体？",
+  "icon": "☕",
+  "badge": { "name": "探索者", "icon": "🧭", "description": "知道什么样的任务值得做成智能体。" },
+  "card": {
+    "title": "值得做成智能体吗？",
+    "lines": [
+      "经常发生（不是一次性的）",
+      "有明确的一群人需要它",
+      "答案有可信的来源",
+      "结果很明确（答案、工单、订单……）",
+      "不涉及对人的敏感判断"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "你的任务",
+      "text": "Contoso Coffee 有 **120 家门店**，还有一个大问题：大家一遍又一遍地问同样的问题。\n\n你是新的**智能体构建团队**。每一关你都要解决 Contoso 的一个问题。\n\n- 答题赚取 **XP**\n- 完成关卡获得**徽章**和**速查卡**\n- 连续答对 3 题 = **连击奖励** 🔥\n- 卡住了？使用**提示**（扣 5 XP）或 **50/50**"
+    },
+    {
+      "type": "sort",
+      "question": "热身：直接问 Copilot 就行，还是该构建一个智能体？",
+      "buckets": ["💬 直接问 Copilot", "🤖 构建智能体"],
+      "items": [
+        { "text": "总结我今天早上收到的长邮件线程", "bucket": 0 },
+        { "text": "在 Teams 中 24 小时回答咖啡师的人事问题，始终以人事手册为准", "bucket": 1 },
+        { "text": "把我的一段话改写得更礼貌", "bucket": 0 },
+        { "text": "查询一笔物料订单的状态并更新工单", "bucket": 1 },
+        { "text": "为新的季节饮品想 5 个名字", "bucket": 0 },
+        { "text": "带每位新员工完成同样的入职步骤", "bucket": 1 }
+      ],
+      "explain": "Copilot 非常适合**你自己的一次性任务**。当**很多人**需要来自**同一可信来源**的**同类帮助**，或者需要在系统中**执行操作**时，智能体才更划算。"
+    },
+    {
+      "type": "swipe",
+      "question": "值得做成智能体吗？逐个判断这些想法。",
+      "left": "👎 不值得",
+      "right": "👍 值得",
+      "cards": [
+        { "text": "回答咖啡师每周都会问的 50 个人事问题", "answer": "right", "why": "重复发生、对象明确、来源可信——完美的第一个智能体。" },
+        { "text": "给同事写一条生日祝福", "answer": "left", "why": "一次性任务，直接问 Copilot 就行。" },
+        { "text": "帮助门店经理在订货系统中订购物料", "answer": "right", "why": "重复性任务，并且在系统中有明确的操作——智能体可以调用工具。" },
+        { "text": "决定谁能获得晋升", "answer": "left", "why": "这是关于人的敏感判断，应由人来决定。" },
+        { "text": "带新员工完成第一周的任务清单", "answer": "right", "why": "每个人步骤相同——一致且容易衡量。" },
+        { "text": "一年只有一个人问一次的事情", "answer": "left", "why": "不值得为此构建、测试和维护一个智能体。" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "对 Contoso Coffee 来说，哪个任务最适合作为第一个智能体？",
+      "options": [
+        "为市场团队做一次性的创意头脑风暴",
+        "根据人事手册回答关于排班和休假的常见问题",
+        "决定哪位门店经理获得奖金",
+        "撰写 CEO 的个人演讲稿"
+      ],
+      "answer": 1,
+      "hint": "想一想：经常发生 + 很多人 + 可信来源。",
+      "explain": "常见问题 + 明确的对象 + 一个可信来源 = 优秀的第一个智能体。"
+    }
+  ],
+  "focus": {
+    "tips": [
+      "使用 5 点检查：经常发生、很多人需要、有可信来源、结果明确、不涉及对人的敏感判断。",
+      "列出你的团队每周都会重复的 3 个问题或任务，用这个检查给它们打分。",
+      "从小处开始：一个对象、一个来源、一项明确的任务。"
+    ],
+    "links": [
+      { "title": "智能体概述", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/agents-overview" },
+      { "title": "Copilot Studio 概述", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/fundamentals-what-is-copilot-studio" }
+    ]
+  }
+}

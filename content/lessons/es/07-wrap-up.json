@@ -1,0 +1,71 @@
+{
+  "id": "wrapup",
+  "title": "Cierre",
+  "subtitle": "Ronda final y tu próximo agente",
+  "icon": "🏆",
+  "badge": { "name": "Héroe de Copilot Studio", "icon": "🏆", "description": "Ha completado Copilot Studio Quest." },
+  "card": {
+    "title": "Mis próximos pasos",
+    "lines": [
+      "Elegir una idea que merezca un agente",
+      "Escribir instrucciones con O-C-F-E-L",
+      "Conectar una fuente oficial",
+      "Hacer las 5 pruebas",
+      "Hacer un piloto con un grupo pequeño y luego ampliar"
+    ]
+  },
+  "steps": [
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "how",
+      "question": "Ronda rápida ⏱️ Un agente está formado principalmente por…",
+      "options": ["Instrucciones + conocimiento + herramientas, ejecutados sobre un harness", "Solo un modelo grande", "Un script de chatbot solo con reglas si/entonces", "Correos y calendarios"],
+      "answer": 0,
+      "explain": "Instrucciones, conocimiento y herramientas, ejecutados por un harness y un modelo."
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "harness",
+      "question": "Ronda rápida ⏱️ Respuestas de soporte predecibles que deben seguir rutas definidas → ¿qué harness?",
+      "options": ["Harness de GitHub Copilot", "Harness estándar", "Ningún harness", "Da igual"],
+      "answer": 1,
+      "explain": "Basado en reglas y predecible → harness estándar."
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "prompt",
+      "question": "Ronda rápida ⏱️ ¿Qué significa la L de O-C-F-E-L?",
+      "options": ["Longitud", "Límites", "Licencia", "Lista"],
+      "answer": 1,
+      "explain": "Límites: lo que hace el agente cuando no sabe algo o no puede hacerlo."
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "control",
+      "question": "Ronda rápida ⏱️ El agente está a punto de enviar un correo a 500 clientes. ¿Qué debería pasar primero?",
+      "options": ["Nada: enviarlo", "Que una persona lo apruebe", "Añadir más emojis", "Eliminar el agente"],
+      "answer": 1,
+      "explain": "Acciones de gran impacto → una persona en el circuito."
+    },
+    {
+      "type": "idea",
+      "title": "Mi idea de agente",
+      "question": "Diseña el primer agente que TÚ quieres crear después de hoy.",
+      "fields": [
+        { "key": "name", "label": "Nombre del agente", "placeholder": "p. ej. Asistente de política de viajes" },
+        { "key": "audience", "label": "¿Para quién es?", "placeholder": "p. ej. todo el equipo de ventas" },
+        { "key": "problem", "label": "¿Qué problema resuelve?", "placeholder": "p. ej. 200 preguntas de viajes al mes a RR. HH." },
+        { "key": "source", "label": "Fuente de confianza", "placeholder": "p. ej. Política de viajes 2026 en SharePoint" },
+        { "key": "action", "label": "Una acción que podría realizar", "placeholder": "p. ej. crear una solicitud de viaje" }
+      ]
+    },
+    {
+      "type": "feedback",
+      "question": "¿Qué te ha parecido Copilot Studio Quest?"
+    }
+  ]
+}

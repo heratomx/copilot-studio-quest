@@ -3,7 +3,11 @@
   "title": "Writing great instructions",
   "subtitle": "Prompts that work",
   "icon": "✍️",
-  "badge": { "name": "Prompt Pro", "icon": "✍️", "description": "Writes instructions an agent can follow." },
+  "badge": {
+    "name": "Prompt Pro",
+    "icon": "✍️",
+    "description": "Writes instructions an agent can follow."
+  },
   "card": {
     "title": "The G-C-S-E-G formula",
     "lines": [
@@ -36,8 +40,16 @@
     {
       "type": "multi",
       "question": "\"Answer baristas' questions about shift swaps in a friendly way.\" What's MISSING? (pick all that apply)",
-      "options": ["A goal", "An audience", "A source of truth", "Guardrails – what to do when it doesn't know"],
-      "answers": [2, 3],
+      "options": [
+        "A goal",
+        "An audience",
+        "A source of truth",
+        "Guardrails – what to do when it doesn't know"
+      ],
+      "answers": [
+        2,
+        3
+      ],
       "explain": "Goal (answer shift-swap questions) and audience (baristas) are there. Missing: **where** answers come from and **what to do** when the agent doesn't know."
     },
     {
@@ -66,5 +78,26 @@
       "codeWord": "ESPRESSO",
       "bonusXp": 30
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Use G-C-S-E-G in every instruction: goal, context, source, expectations, guardrails.",
+      "Name the exact source, and say what the agent should do when the answer isn't there.",
+      "Rewrite one weak prompt from today with the formula and compare the results."
+    ],
+    "links": [
+      {
+        "title": "Configure agent details and instructions",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-instructions"
+      },
+      {
+        "title": "Training: Create instruction-driven agents",
+        "url": "https://learn.microsoft.com/en-us/training/modules/create-instruction-driven-agents-copilot-studio/"
+      },
+      {
+        "title": "Write high-quality instructions",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/generative-mode-guidance"
+      }
+    ]
+  }
 }

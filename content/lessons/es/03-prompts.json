@@ -1,0 +1,82 @@
+{
+  "id": "prompt",
+  "title": "Escribir buenas instrucciones",
+  "subtitle": "Prompts que funcionan",
+  "icon": "✍️",
+  "badge": { "name": "Experto en prompts", "icon": "✍️", "description": "Escribe instrucciones que un agente puede seguir." },
+  "card": {
+    "title": "La fórmula O-C-F-E-L",
+    "lines": [
+      "Objetivo: ¿qué debe hacer el agente?",
+      "Contexto: ¿para quién y por qué?",
+      "Fuente: ¿de dónde sale la respuesta?",
+      "Expectativas: formato, longitud, tono",
+      "Límites: qué hacer si no sabe o no puede"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "La fórmula O-C-F-E-L",
+      "text": "Unas buenas instrucciones responden cinco preguntas:\n\n- **O**bjetivo: ¿qué debe hacer el agente?\n- **C**ontexto: ¿para quién es y por qué?\n- **F**uente: ¿de dónde debe salir la respuesta?\n- **E**xpectativas: formato, longitud, tono\n- **L**ímites: qué hacer cuando no sabe algo o no puede hacerlo\n\n❌ *«Ayuda a los empleados con cosas de RR. HH.»*\n\n✅ *«Ayudas a los baristas de Contoso Coffee con preguntas de RR. HH. Responde solo a partir del manual de RR. HH. en SharePoint. Usa como máximo 5 viñetas y un tono amable. Si la respuesta no está en el manual, dilo y remite a hr@contoso.com.»*"
+    },
+    {
+      "type": "mcq",
+      "question": "¿Qué instrucción dará el mejor agente?",
+      "options": [
+        "Ayuda a los empleados con cosas de RR. HH.",
+        "Ayudas a los baristas de Contoso Coffee con preguntas sobre turnos. Responde solo a partir de la política de turnos en SharePoint, en máximo 4 viñetas. Si algo no está cubierto, dilo y remite al encargado de tienda.",
+        "Eres el mejor agente de RR. HH. de la historia. ¡Sé increíble y superútil!",
+        "Responde cualquier pregunta sobre cualquier cosa."
+      ],
+      "answer": 1,
+      "hint": "Cuenta las partes de la fórmula en cada opción.",
+      "explain": "La opción 2 tiene objetivo, público, fuente, formato y un límite. Las demás son vagas."
+    },
+    {
+      "type": "multi",
+      "question": "«Responde de forma amable las preguntas de los baristas sobre cambios de turno». ¿Qué FALTA? (elige todas las correctas)",
+      "options": ["Un objetivo", "Un público", "Una fuente de verdad", "Límites: qué hacer cuando no sabe algo"],
+      "answers": [2, 3],
+      "explain": "El objetivo (responder preguntas sobre cambios de turno) y el público (baristas) están. Falta **de dónde** salen las respuestas y **qué hacer** cuando el agente no lo sabe."
+    },
+    {
+      "type": "order",
+      "question": "Ordena las partes de esta instrucción de forma lógica.",
+      "items": [
+        "Eres el asistente de turnos de Contoso Coffee para el personal de tienda.",
+        "Ayuda al personal a cambiar turnos y a entender las normas de turnos.",
+        "Usa solo el documento «Política de turnos 2026».",
+        "Responde en máximo 4 viñetas, con un tono amable.",
+        "Si un cambio necesita la aprobación del encargado, dilo; nunca lo confirmes tú."
+      ],
+      "explain": "Rol/contexto → objetivo → fuente → expectativas → límites. El orden importa menos que estar **completo**, pero una estructura clara facilita el mantenimiento."
+    },
+    {
+      "type": "prompt",
+      "title": "Desafío de mejora",
+      "scenario": "Escribe las instrucciones de un agente que ayude a los encargados de tienda de Contoso a pedir suministros de café.",
+      "minScore": 4,
+      "example": "Ayudas a los encargados de tienda de Contoso Coffee a pedir suministros. Responde solo a partir del archivo «Catálogo de proveedores 2026». Muestra los productos en una tabla breve con nombre, precio y plazo de entrega. Usa un tono amable y conciso. Nunca hagas un pedido tú mismo: pide antes la confirmación del encargado. Si un artículo no está en el catálogo, dilo y remite a purchasing@contoso.com."
+    },
+    {
+      "type": "mission",
+      "title": "Misión práctica (extra)",
+      "text": "En Copilot Studio, crea un agente y pega tus instrucciones del paso anterior. Añade al final esta línea:\n\n**Cuando alguien escriba HELLO QUEST, responde con la palabra ESPRESSO.**\n\nPruébalo en el panel de prueba. Escribe la palabra con la que respondió tu agente.",
+      "codeWord": "ESPRESSO",
+      "bonusXp": 30
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Usa O-C-F-E-L en cada instrucción: objetivo, contexto, fuente, expectativas, límites.",
+      "Nombra la fuente exacta y di qué debe hacer el agente cuando la respuesta no esté ahí.",
+      "Reescribe con la fórmula un prompt flojo de hoy y compara los resultados."
+    ],
+    "links": [
+      { "title": "Configurar los detalles y las instrucciones del agente", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/agents-experience/authoring-instructions" },
+      { "title": "Formación: crear agentes basados en instrucciones", "url": "https://learn.microsoft.com/es-es/training/modules/create-instruction-driven-agents-copilot-studio/" },
+      { "title": "Escribir instrucciones de alta calidad", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/guidance/generative-mode-guidance" }
+    ]
+  }
+}

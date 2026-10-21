@@ -3,7 +3,11 @@
   "title": "Standard vs GitHub Copilot harness",
   "subtitle": "Pick the right engine",
   "icon": "🔀",
-  "badge": { "name": "Pathfinder", "icon": "🔀", "description": "Picks the right harness for the job." },
+  "badge": {
+    "name": "Pathfinder",
+    "icon": "🔀",
+    "description": "Picks the right harness for the job."
+  },
   "card": {
     "title": "Which harness?",
     "lines": [
@@ -23,21 +27,48 @@
     {
       "type": "sort",
       "question": "Which harness fits each Contoso scenario?",
-      "buckets": ["📏 Standard", "🧠 GitHub Copilot", "💬 Copilot chat"],
+      "buckets": [
+        "📏 Standard",
+        "🧠 GitHub Copilot",
+        "💬 Copilot chat"
+      ],
       "items": [
-        { "text": "IT help desk: same answers every time, route password resets to a workflow", "bucket": 0 },
-        { "text": "Compare 3 large supplier spreadsheets and create a Word report", "bucket": 1 },
-        { "text": "Onboarding answers from SharePoint, right inside Copilot Chat", "bucket": 2 },
-        { "text": "A guided, step-by-step return form that must always follow the same path", "bucket": 0 },
-        { "text": "Investigate a delivery problem across several systems – the steps differ each time", "bucket": 1 },
-        { "text": "A policy FAQ for all employees in their everyday Copilot", "bucket": 2 }
+        {
+          "text": "IT help desk: same answers every time, route password resets to a workflow",
+          "bucket": 0
+        },
+        {
+          "text": "Compare 3 large supplier spreadsheets and create a Word report",
+          "bucket": 1
+        },
+        {
+          "text": "Onboarding answers from SharePoint, right inside Copilot Chat",
+          "bucket": 2
+        },
+        {
+          "text": "A guided, step-by-step return form that must always follow the same path",
+          "bucket": 0
+        },
+        {
+          "text": "Investigate a delivery problem across several systems – the steps differ each time",
+          "bucket": 1
+        },
+        {
+          "text": "A policy FAQ for all employees in their everyday Copilot",
+          "bucket": 2
+        }
       ],
       "explain": "**Predictable & rule-based → Standard. Reasoning, files & many tools → GitHub Copilot. Knowledge inside Copilot Chat → Copilot chat.**"
     },
     {
       "type": "mcq",
       "question": "Your agent must read three large Excel files, compare them and produce a Word report – and the steps are different every time. Which harness?",
-      "options": ["Standard harness", "GitHub Copilot harness", "Copilot chat harness", "No harness needed"],
+      "options": [
+        "Standard harness",
+        "GitHub Copilot harness",
+        "Copilot chat harness",
+        "No harness needed"
+      ],
       "answer": 1,
       "hint": "Large files + changing steps + creating documents.",
       "explain": "The GitHub Copilot harness handles large files, adaptive multistep work, and can generate documents."
@@ -45,7 +76,12 @@
     {
       "type": "mcq",
       "question": "Which building block is supported only in the GitHub Copilot harness?",
-      "options": ["Connectors", "SharePoint knowledge", "Skills", "Workflows"],
+      "options": [
+        "Connectors",
+        "SharePoint knowledge",
+        "Skills",
+        "Workflows"
+      ],
       "answer": 2,
       "explain": "**Skills** (and memory) are available in the GitHub Copilot harness. There, skills replace the prompt tool of the standard harness. Connectors, SharePoint knowledge and workflows work in both."
     },
@@ -74,5 +110,22 @@
       "answer": 1,
       "explain": "Well-defined, rule-based and predictable → **Standard harness**. Choose based on the job, not on what's newest."
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Predictable & rule-based → Standard. Reasoning, large files, many tools → GitHub Copilot. Knowledge inside Copilot Chat → Copilot chat.",
+      "Skills and memory are only available on the GitHub Copilot harness.",
+      "The GitHub Copilot harness uses credits from the first build step – plan before you build."
+    ],
+    "links": [
+      {
+        "title": "Compare Copilot Studio agent harnesses",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/choose-harness"
+      },
+      {
+        "title": "Harnesses in Copilot Studio",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview"
+      }
+    ]
+  }
 }

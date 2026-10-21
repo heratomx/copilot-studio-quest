@@ -1,0 +1,99 @@
+{
+  "id": "control",
+  "title": "Mantener el control",
+  "subtitle": "Aprobaciones, seguridad de datos y costes",
+  "icon": "🛡️",
+  "badge": { "name": "Guardián de los datos", "icon": "🛡️", "description": "Protege a las personas, los datos y los presupuestos." },
+  "card": {
+    "title": "Mantén el control",
+    "lines": [
+      "Acciones importantes → primero aprueba una persona",
+      "Fuentes oficiales + inicio de sesión del usuario para los permisos",
+      "Nada de datos confidenciales en agentes compartidos con mucha gente",
+      "Primero prueba, luego comparte con un grupo pequeño",
+      "Vigila los créditos en la página Monitor del agente"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Tú eres el piloto",
+      "text": "- **Aprobaciones (persona en el circuito)**: antes de acciones importantes o irreversibles, como pedidos, pagos o correos a muchas personas, una persona da el visto bueno.\n- **Permisos**: con el inicio de sesión del usuario, el agente solo responde con lo que esa persona puede ver.\n- **Datos**: nunca pongas datos confidenciales, como salarios o datos de salud, en un agente que puede usar todo el mundo.\n- **Compartir**: primero prueba, luego comparte con un pequeño grupo piloto y después amplía.\n- **Controles de administración**: tus administradores de TI definen directivas, por ejemplo qué conectores están permitidos.\n- **Costes**: los agentes consumen **créditos de Copilot**. Tu administrador asigna créditos; puedes ver el consumo de tu agente en su página **Monitor**."
+    },
+    {
+      "type": "swipe",
+      "question": "¿Seguro o arriesgado?",
+      "left": "⚠️ Arriesgado",
+      "right": "✅ Seguro",
+      "cards": [
+        { "text": "Subir la lista completa de salarios para que el agente responda preguntas de sueldo a todo el mundo", "answer": "left", "why": "Datos confidenciales en un agente compartido: cualquiera podría pedirlos." },
+        { "text": "Usar el sitio oficial de RR. HH. en SharePoint como conocimiento, con inicio de sesión del usuario", "answer": "right", "why": "Fuente oficial, y cada persona solo ve lo que tiene permiso para ver." },
+        { "text": "Dejar que el agente envíe correos a los 2.000 clientes sin que nadie lo revise", "answer": "left", "why": "Acción de gran impacto sin aprobación humana." },
+        { "text": "Un encargado aprueba los pedidos de suministros de más de 500 € antes de enviarlos", "answer": "right", "why": "Una persona en el circuito para las acciones importantes." },
+        { "text": "Compartir tu agente sin probar con toda la empresa el primer día", "answer": "left", "why": "Primero prueba y luego haz un piloto con un grupo pequeño." },
+        { "text": "Indicar al agente que diga «No lo sé» y enlace con RR. HH. cuando no esté seguro", "answer": "right", "why": "Un límite claro es mejor que una respuesta errónea dicha con seguridad." }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "¿Aprobar o bloquear? El agente quiere cancelar un contrato con un proveedor por un solo retraso en una entrega.",
+      "options": [
+        "Dejar que lo cancele: es más rápido",
+        "Pausar y pedir primero la aprobación de una persona",
+        "Cancelar y enviar una disculpa después",
+        "Ignorar el retraso"
+      ],
+      "answer": 1,
+      "explain": "Las acciones irreversibles y de gran impacto necesitan un **paso de aprobación humana**."
+    },
+    {
+      "type": "multi",
+      "question": "Con el harness de GitHub Copilot, ¿cuáles de estas acciones pueden consumir créditos de Copilot? (elige todas las correctas)",
+      "options": [
+        "Crear el agente describiéndolo en lenguaje natural",
+        "Probarlo en el panel de prueba",
+        "Ejecutar evaluaciones",
+        "Que la gente chatee con el agente publicado",
+        "Leer la documentación de Microsoft Learn sobre agentes"
+      ],
+      "answers": [0, 1, 2, 3],
+      "explain": "Crear, probar, evaluar **y** ejecutar el agente pueden consumir créditos. Leer la documentación es gratis 😉"
+    },
+    {
+      "type": "mcq",
+      "question": "¿Dónde puedes ver cuántos créditos de Copilot ha usado tu agente?",
+      "options": [
+        "En la página Monitor del agente en Copilot Studio",
+        "En la intranet de Contoso",
+        "En las instrucciones del agente",
+        "En ninguna parte: es un secreto"
+      ],
+      "answer": 0,
+      "explain": "La página **Monitor** muestra el consumo de tu agente. Tu administrador ve los totales por entorno e inquilino y asigna los créditos: pídeselos si necesitas más."
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "JEFE: ¿Qué hábito desperdicia MÁS créditos?",
+      "options": [
+        "Escribir instrucciones claras antes de empezar a crear",
+        "Probar unas cuantas preguntas realistas después de cada cambio",
+        "Volver a ejecutar una y otra vez la misma conversación de prueba larga sin cambiar nada",
+        "Usar una única fuente de conocimiento de confianza"
+      ],
+      "answer": 2,
+      "explain": "Primero planifica y luego prueba con intención. Cada ejecución consume créditos: repetir pruebas idénticas no te enseña nada nuevo."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Añade una aprobación humana antes de las acciones irreversibles o de gran impacto.",
+      "Nunca pongas datos confidenciales en un agente muy compartido: las instrucciones no son un candado.",
+      "Prueba, haz un piloto con un grupo pequeño y luego comparte, vigilando los créditos en la página Monitor del agente."
+    ],
+    "links": [
+      { "title": "Facturación por uso con créditos de Copilot", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/agents-experience/billing-credit-overview" },
+      { "title": "Administrar los costes (guía para administradores)", "url": "https://learn.microsoft.com/es-es/power-platform/admin/manage-usage-github-copilot-harness" }
+    ]
+  }
+}

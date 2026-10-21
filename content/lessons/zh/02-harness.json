@@ -1,0 +1,89 @@
+{
+  "id": "harness",
+  "title": "标准 harness 与 GitHub Copilot harness",
+  "subtitle": "选对引擎",
+  "icon": "🔀",
+  "badge": { "name": "领航员", "icon": "🔀", "description": "能为任务选择合适的 harness。" },
+  "card": {
+    "title": "选哪个 harness？",
+    "lines": [
+      "可预测、基于规则的回答 → 标准",
+      "较长的推理、多个工具、文件、端到端流程 → GitHub Copilot",
+      "在 Copilot Chat 中提供有依据的回答 → Copilot Chat",
+      "Skills 和记忆 → 仅限 GitHub Copilot harness",
+      "GitHub Copilot harness 从第一步构建起就消耗额度"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "三种引擎，三类工作",
+      "text": "你在 Copilot Studio 中构建的一切都运行在某个 **harness** 上。\n\n- **标准 harness**——定义清晰、基于规则的场景。你设计主题和路径，因此回答**一致且可预测**。例如：回答常见问题的 IT 服务台。\n- **GitHub Copilot harness**——需要推理的多步骤工作。你**用自然语言描述智能体**；它会规划、使用多个工具、处理**大文件**，并在过程中自我调整。\n- **Copilot Chat harness**——用公司的知识扩展 **Microsoft Copilot Chat**，让大家在日常工作的地方获得有依据的回答。"
+    },
+    {
+      "type": "sort",
+      "question": "每个 Contoso 场景适合哪种 harness？",
+      "buckets": ["📏 标准", "🧠 GitHub Copilot", "💬 Copilot Chat"],
+      "items": [
+        { "text": "IT 服务台：每次回答都一样，把密码重置交给工作流", "bucket": 0 },
+        { "text": "比较 3 份大型供应商表格并生成 Word 报告", "bucket": 1 },
+        { "text": "在 Copilot Chat 中直接提供来自 SharePoint 的入职答案", "bucket": 2 },
+        { "text": "一个必须始终按同一流程进行的引导式退货表单", "bucket": 0 },
+        { "text": "跨多个系统调查一次配送问题——每次步骤都不同", "bucket": 1 },
+        { "text": "在全体员工日常使用的 Copilot 中提供政策问答", "bucket": 2 }
+      ],
+      "explain": "**可预测、基于规则 → 标准。推理、文件和多个工具 → GitHub Copilot。Copilot Chat 中的知识 → Copilot Chat。**"
+    },
+    {
+      "type": "mcq",
+      "question": "你的智能体需要读取三个大型 Excel 文件、进行比较并生成 Word 报告，而且每次步骤都不同。选哪种 harness？",
+      "options": ["标准 harness", "GitHub Copilot harness", "Copilot Chat harness", "不需要 harness"],
+      "answer": 1,
+      "hint": "大文件 + 步骤多变 + 生成文档。",
+      "explain": "GitHub Copilot harness 能处理大文件，在多步骤工作中灵活调整，还能生成文档。"
+    },
+    {
+      "type": "mcq",
+      "question": "哪个组成部分只在 GitHub Copilot harness 中受支持？",
+      "options": ["连接器", "SharePoint 知识", "Skills", "工作流"],
+      "answer": 2,
+      "explain": "**Skills**（以及记忆）在 GitHub Copilot harness 中可用，在那里 skills 取代了标准 harness 的提示词工具。连接器、SharePoint 知识和工作流在两者中都可用。"
+    },
+    {
+      "type": "mcq",
+      "question": "使用 GitHub Copilot harness 的智能体从什么时候开始消耗 Copilot 额度（Credits）？",
+      "options": [
+        "只在发布之后",
+        "从你开始构建、测试和评估的那一刻起",
+        "从不——每个 Microsoft 365 Copilot 许可证都已包含",
+        "只有超过 100 人使用时"
+      ],
+      "answer": 1,
+      "explain": "GitHub Copilot harness **从第一步构建起**就收取额度——构建、测试和评估都算在内。标准 harness 则在发布后才开始计费。"
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "BOSS：Contoso 想要一个智能体，每次都用完全相同的方式回答 30 个最常见的 IT 问题，并把密码重置交给现有的工作流。最佳起点是？",
+      "options": [
+        "GitHub Copilot harness——它总是更好",
+        "标准 harness——可预测、基于规则的回答",
+        "不用智能体——直接给 IT 发邮件",
+        "Copilot Chat harness——只因为它在 Copilot 里"
+      ],
+      "answer": 1,
+      "explain": "定义清晰、基于规则、可预测 → **标准 harness**。按任务来选择，而不是选最新的。"
+    }
+  ],
+  "focus": {
+    "tips": [
+      "可预测、基于规则 → 标准。推理、大文件、多个工具 → GitHub Copilot。Copilot Chat 中的知识 → Copilot Chat。",
+      "Skills 和记忆只在 GitHub Copilot harness 中可用。",
+      "GitHub Copilot harness 从第一步构建起就消耗额度——先规划，再构建。"
+    ],
+    "links": [
+      { "title": "比较 Copilot Studio 智能体 harness", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/guidance/choose-harness" },
+      { "title": "Copilot Studio 中的 harness", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/harnesses-overview" }
+    ]
+  }
+}

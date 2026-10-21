@@ -1,0 +1,131 @@
+{
+  "id": "harness",
+  "title": "Standard- vs. GitHub-Copilot-Harness",
+  "subtitle": "Wähle den richtigen Motor",
+  "icon": "🔀",
+  "badge": {
+    "name": "Wegweiser",
+    "icon": "🔀",
+    "description": "Wählt den richtigen Harness für die Aufgabe."
+  },
+  "card": {
+    "title": "Welcher Harness?",
+    "lines": [
+      "Vorhersehbare, regelbasierte Antworten → Standard",
+      "Längeres Nachdenken, viele Tools, Dateien, End-to-End-Prozesse → GitHub Copilot",
+      "Fundierte Antworten direkt in Copilot Chat → Copilot Chat",
+      "Skills und Gedächtnis → nur GitHub-Copilot-Harness",
+      "GitHub-Copilot-Harness verbraucht Credits ab dem ersten Bauschritt"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Drei Motoren, drei Aufgaben",
+      "text": "Alles, was du in Copilot Studio baust, läuft auf einem **Harness**.\n\n- **Standard-Harness** – klar definierte, regelbasierte Szenarien. Du gestaltest Themen und Pfade, daher sind die Antworten **einheitlich und vorhersehbar**. Beispiel: ein IT-Helpdesk für häufige Fragen.\n- **GitHub-Copilot-Harness** – anspruchsvolle, mehrstufige Aufgaben. Du **beschreibst den Agenten in natürlicher Sprache**; er plant, nutzt mehrere Tools, arbeitet mit **großen Dateien** und passt sich unterwegs an.\n- **Copilot-Chat-Harness** – erweitert **Microsoft Copilot Chat** um das Wissen deines Unternehmens, sodass Menschen fundierte Antworten dort bekommen, wo sie ohnehin arbeiten."
+    },
+    {
+      "type": "sort",
+      "question": "Welcher Harness passt zu welchem Contoso-Szenario?",
+      "buckets": [
+        "📏 Standard",
+        "🧠 GitHub Copilot",
+        "💬 Copilot Chat"
+      ],
+      "items": [
+        {
+          "text": "IT-Helpdesk: jedes Mal dieselben Antworten, Passwort-Resets an einen Workflow weitergeben",
+          "bucket": 0
+        },
+        {
+          "text": "3 große Lieferanten-Tabellen vergleichen und einen Word-Bericht erstellen",
+          "bucket": 1
+        },
+        {
+          "text": "Onboarding-Antworten aus SharePoint, direkt in Copilot Chat",
+          "bucket": 2
+        },
+        {
+          "text": "Ein geführtes Rückgabeformular, das immer demselben Ablauf folgen muss",
+          "bucket": 0
+        },
+        {
+          "text": "Ein Lieferproblem über mehrere Systeme hinweg untersuchen – die Schritte sind jedes Mal anders",
+          "bucket": 1
+        },
+        {
+          "text": "Ein Richtlinien-FAQ für alle Mitarbeitenden in ihrem täglichen Copilot",
+          "bucket": 2
+        }
+      ],
+      "explain": "**Vorhersehbar & regelbasiert → Standard. Nachdenken, Dateien & viele Tools → GitHub Copilot. Wissen direkt in Copilot Chat → Copilot Chat.**"
+    },
+    {
+      "type": "mcq",
+      "question": "Dein Agent soll drei große Excel-Dateien lesen, vergleichen und einen Word-Bericht erstellen – und die Schritte sind jedes Mal anders. Welcher Harness?",
+      "options": [
+        "Standard-Harness",
+        "GitHub-Copilot-Harness",
+        "Copilot-Chat-Harness",
+        "Kein Harness nötig"
+      ],
+      "answer": 1,
+      "hint": "Große Dateien + wechselnde Schritte + Dokumente erstellen.",
+      "explain": "Der GitHub-Copilot-Harness verarbeitet große Dateien, passt sich bei mehrstufigen Aufgaben an und kann Dokumente erzeugen."
+    },
+    {
+      "type": "mcq",
+      "question": "Welcher Baustein wird nur im GitHub-Copilot-Harness unterstützt?",
+      "options": [
+        "Konnektoren",
+        "SharePoint-Wissen",
+        "Skills",
+        "Workflows"
+      ],
+      "answer": 2,
+      "explain": "**Skills** (und Gedächtnis) gibt es im GitHub-Copilot-Harness. Dort ersetzen Skills das Prompt-Tool des Standard-Harness. Konnektoren, SharePoint-Wissen und Workflows funktionieren in beiden."
+    },
+    {
+      "type": "mcq",
+      "question": "Ab wann verbraucht ein Agent auf dem GitHub-Copilot-Harness Copilot Credits?",
+      "options": [
+        "Erst nach dem Veröffentlichen",
+        "Ab dem Moment, in dem du anfängst zu bauen, zu testen und zu evaluieren",
+        "Nie – das ist in jeder Microsoft-365-Copilot-Lizenz enthalten",
+        "Erst wenn mehr als 100 Personen ihn nutzen"
+      ],
+      "answer": 1,
+      "explain": "Der GitHub-Copilot-Harness berechnet Credits **ab dem ersten Bauschritt** – Bauen, Testen und Evaluieren inklusive. Beim Standard-Harness beginnt die Abrechnung nach dem Veröffentlichen."
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "BOSS: Contoso möchte einen Agenten, der die 30 häufigsten IT-Fragen jedes Mal genau gleich beantwortet und Passwort-Resets an einen bestehenden Workflow weitergibt. Bester Start?",
+      "options": [
+        "GitHub-Copilot-Harness – der ist immer besser",
+        "Standard-Harness – vorhersehbare, regelbasierte Antworten",
+        "Kein Agent – einfach der IT eine Mail schreiben",
+        "Copilot-Chat-Harness – nur weil er in Copilot ist"
+      ],
+      "answer": 1,
+      "explain": "Klar definiert, regelbasiert und vorhersehbar → **Standard-Harness**. Entscheide nach der Aufgabe, nicht nach dem Neuesten."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Vorhersehbar & regelbasiert → Standard. Nachdenken, große Dateien, viele Tools → GitHub Copilot. Wissen direkt in Copilot Chat → Copilot Chat.",
+      "Skills und Gedächtnis gibt es nur im GitHub-Copilot-Harness.",
+      "Der GitHub-Copilot-Harness verbraucht Credits ab dem ersten Bauschritt – erst planen, dann bauen."
+    ],
+    "links": [
+      {
+        "title": "Copilot-Studio-Harnesses vergleichen",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/guidance/choose-harness"
+      },
+      {
+        "title": "Harnesses in Copilot Studio",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/harnesses-overview"
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "how",
+  "title": "Cómo funciona Copilot Studio",
+  "subtitle": "La anatomía de un agente",
+  "icon": "🏗️",
+  "badge": { "name": "Arquitecto", "icon": "🏗️", "description": "Sabe de qué está hecho un agente." },
+  "card": {
+    "title": "Anatomía de un agente",
+    "lines": [
+      "Instrucciones: cómo se comporta el agente",
+      "Conocimiento: a partir de qué responde",
+      "Herramientas: qué puede hacer (conectores, MCP, API)",
+      "Harness: el motor entre el modelo y el agente",
+      "Canales: dónde lo usa la gente (Teams, Copilot, web)"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Todos los agentes tienen las mismas piezas",
+      "text": "Cuando abres un agente en Copilot Studio ves sus piezas. Toca los números para saber qué hace cada una.",
+      "image": "assets/screens/01-agent-overview.svg",
+      "callouts": [
+        { "x": 30, "y": 25, "label": "Instrucciones: cómo debe comportarse el agente, su tono y sus límites" },
+        { "x": 30, "y": 50, "label": "Conocimiento: las fuentes a partir de las que responde (SharePoint, archivos, sitios web…)" },
+        { "x": 30, "y": 75, "label": "Herramientas: acciones que puede realizar (conectores, servidores MCP, flujos de trabajo)" },
+        { "x": 82, "y": 30, "label": "Panel de prueba: chatea con tu agente antes que nadie" },
+        { "x": 88, "y": 8, "label": "Publicar: poner el agente a disposición en Teams, Copilot o un sitio web" }
+      ]
+    },
+    {
+      "type": "info",
+      "title": "Modelo + harness = el motor",
+      "text": "El **modelo** piensa: entiende la pregunta y redacta la respuesta.\n\nEl **harness** es el motor que lo rodea. Decide cuándo llamar al modelo, qué enviarle (instrucciones, conocimiento, resultados de herramientas), interpreta lo que devuelve y llama a las herramientas adecuadas.\n\n**Tú** diseñas el agente. El harness y el modelo hacen el resto."
+    },
+    {
+      "type": "sort",
+      "question": "Coloca cada elemento en la pieza correcta.",
+      "buckets": ["📝 Instrucciones", "📚 Conocimiento", "🔧 Herramientas"],
+      "items": [
+        { "text": "El manual de RR. HH. en SharePoint", "bucket": 1 },
+        { "text": "«Responde siempre con un tono amable»", "bucket": 0 },
+        { "text": "Crear un ticket de reparación para una cafetera estropeada", "bucket": 2 },
+        { "text": "El sitio web público de Contoso Coffee", "bucket": 1 },
+        { "text": "«Nunca des asesoramiento legal»", "bucket": 0 },
+        { "text": "Enviar un correo con Outlook", "bucket": 2 }
+      ],
+      "explain": "Las **instrucciones** definen el comportamiento, el **conocimiento** es lo que sabe el agente y las **herramientas** le permiten actuar."
+    },
+    {
+      "type": "hotspot",
+      "question": "¡Encuéntralo! ¿Dónde harías clic para añadir el manual de RR. HH. y que el agente responda a partir de él?",
+      "image": "assets/screens/01-agent-overview.svg",
+      "target": { "x": 49, "y": 44, "w": 13, "h": 9 },
+      "hint": "El manual es algo que el agente debe SABER.",
+      "explain": "Usa **+ Add knowledge** (Agregar conocimiento) para conectar sitios de SharePoint, archivos o sitios web."
+    },
+    {
+      "type": "order",
+      "question": "Un barista pregunta: «¿Cuántos días de vacaciones tengo?». Ordena los pasos.",
+      "items": [
+        "El barista hace la pregunta en Teams",
+        "El harness y el modelo deciden qué se necesita",
+        "El agente busca en la fuente de conocimiento de RR. HH.",
+        "El modelo redacta una respuesta con lo que ha encontrado",
+        "La respuesta aparece con una cita de la fuente"
+      ],
+      "explain": "Pregunta → plan → buscar en el conocimiento → generar la respuesta → mostrarla **con una cita** para poder comprobarla."
+    },
+    {
+      "type": "mcq",
+      "question": "La respuesta del agente suena genial. ¿Cómo puede comprobar el barista de dónde sale?",
+      "options": [
+        "Confiar sin más: la IA siempre tiene razón",
+        "Mirar la cita que enlaza con la fuente",
+        "Pedir al agente que prometa que es correcta",
+        "Llamar al soporte de TI"
+      ],
+      "answer": 1,
+      "explain": "Las respuestas basadas en conocimiento pueden mostrar **citas**. Enseña a la gente a hacer clic en ellas: genera confianza y detecta errores."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Recuerda la anatomía: instrucciones, conocimiento y herramientas, ejecutados por un harness y un modelo.",
+      "Abre un agente existente y localiza cada pieza en la pantalla.",
+      "Acostúmbrate a comprobar las respuestas a través de sus citas."
+    ],
+    "links": [
+      { "title": "Introducción a Copilot Studio", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/fundamentals-what-is-copilot-studio" },
+      { "title": "Harnesses en Copilot Studio", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/harnesses-overview" }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "warmup",
+  "title": "Bienvenido a Contoso Coffee",
+  "subtitle": "¿Copilot o un agente?",
+  "icon": "☕",
+  "badge": { "name": "Explorador", "icon": "🧭", "description": "Sabe cuándo una tarea merece un agente." },
+  "card": {
+    "title": "¿Merece un agente?",
+    "lines": [
+      "Ocurre a menudo (no una sola vez)",
+      "Lo necesita un grupo claro de personas",
+      "Hay una fuente de confianza para la respuesta",
+      "El resultado es claro (respuesta, ticket, pedido…)",
+      "No hay decisiones delicadas sobre personas"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Tu misión",
+      "text": "Contoso Coffee tiene **120 cafeterías** y un gran problema: todo el mundo hace las mismas preguntas una y otra vez.\n\nTú eres el nuevo **equipo de creadores de agentes**. En cada nivel resuelves un problema de Contoso.\n\n- Responde preguntas para ganar **XP**\n- Completa un nivel para ganar una **insignia** y una **chuleta**\n- 3 aciertos seguidos = **bonus de combo** 🔥\n- ¿Atascado? Usa una **pista** (cuesta 5 XP) o el **50/50**"
+    },
+    {
+      "type": "sort",
+      "question": "Calentamiento: ¿basta con preguntar a Copilot o conviene crear un agente?",
+      "buckets": ["💬 Basta con preguntar a Copilot", "🤖 Crear un agente"],
+      "items": [
+        { "text": "Resumir el largo hilo de correos que recibí esta mañana", "bucket": 0 },
+        { "text": "Responder 24/7 en Teams las preguntas de RR. HH. de los baristas, siempre a partir del manual de RR. HH.", "bucket": 1 },
+        { "text": "Reescribir mi párrafo para que suene más educado", "bucket": 0 },
+        { "text": "Consultar el estado de un pedido de suministros y actualizar el ticket", "bucket": 1 },
+        { "text": "Proponer 5 nombres para una nueva bebida de temporada", "bucket": 0 },
+        { "text": "Guiar a cada nueva incorporación por los mismos pasos de bienvenida", "bucket": 1 }
+      ],
+      "explain": "Copilot es ideal para **tus propias tareas puntuales**. Un agente compensa cuando **muchas personas** necesitan **el mismo tipo de ayuda** a partir de **la misma fuente de confianza**, o cuando hay que **hacer algo** en un sistema."
+    },
+    {
+      "type": "swipe",
+      "question": "¿Merece un agente o no? Decide para cada idea.",
+      "left": "👎 No merece un agente",
+      "right": "👍 Merece un agente",
+      "cards": [
+        { "text": "Responder las 50 preguntas de RR. HH. que los baristas hacen cada semana", "answer": "right", "why": "Repetitivo, público claro, fuente de confianza: un primer agente perfecto." },
+        { "text": "Escribir un mensaje de cumpleaños para una compañera", "answer": "left", "why": "Es una tarea puntual. Pregúntale a Copilot." },
+        { "text": "Ayudar a los encargados de tienda a pedir suministros en el sistema de pedidos", "answer": "right", "why": "Tarea repetitiva con una acción clara en un sistema: los agentes pueden usar herramientas." },
+        { "text": "Decidir a quién se asciende", "answer": "left", "why": "Una decisión delicada sobre personas. Que la tomen las personas." },
+        { "text": "Guiar a las nuevas incorporaciones por la lista de tareas de su primera semana", "answer": "right", "why": "Los mismos pasos para todos: coherente y fácil de medir." },
+        { "text": "Algo que solo pregunta una persona una vez al año", "answer": "left", "why": "No compensa crearlo, probarlo y mantenerlo." }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "¿Cuál es el MEJOR primer agente para Contoso Coffee?",
+      "options": [
+        "Una lluvia de ideas creativa puntual para el equipo de marketing",
+        "Responder las preguntas frecuentes sobre turnos y vacaciones a partir del manual de RR. HH.",
+        "Decidir qué encargado de tienda recibe un bonus",
+        "Escribir el discurso personal del CEO"
+      ],
+      "answer": 1,
+      "hint": "Piensa: frecuente + muchas personas + fuente de confianza.",
+      "explain": "Preguntas frecuentes + público claro + una fuente de confianza = un gran primer agente."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Usa la comprobación de 5 puntos: ocurre a menudo, lo necesitan muchas personas, hay una fuente de confianza, el resultado es claro y no hay decisiones delicadas sobre personas.",
+      "Anota 3 preguntas o tareas que tu equipo repite cada semana y valóralas con la comprobación.",
+      "Empieza con poco: un público, una fuente, una tarea clara."
+    ],
+    "links": [
+      { "title": "Introducción a los agentes", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/agents-overview" },
+      { "title": "Introducción a Copilot Studio", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/fundamentals-what-is-copilot-studio" }
+    ]
+  }
+}

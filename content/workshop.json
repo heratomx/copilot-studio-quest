@@ -1,21 +1,223 @@
 {
-  "title": "Copilot Studio Quest",
-  "subtitle": "Build your first agents in 60 minutes – learn by playing",
-  "company": "Contoso Coffee",
-  "story": "Contoso Coffee runs 120 cafés. Baristas and store managers are drowning in the same questions about shifts, vacation, supplies and broken machines. You just joined the new Agent Builder team. Every level solves one Contoso problem. Earn XP, collect badges and cheat cards, and become a Copilot Studio Hero!",
+  "title": {
+    "en": "Copilot Studio Quest",
+    "de": "Copilot Studio Quest",
+    "es": "Copilot Studio Quest",
+    "zh": "Copilot Studio 闯关"
+  },
+  "subtitle": {
+    "en": "Build your first agents in 60 minutes – learn by playing",
+    "de": "Deine ersten Agenten in 60 Minuten – spielerisch lernen",
+    "es": "Crea tus primeros agentes en 60 minutos, aprendiendo mientras juegas",
+    "zh": "60 分钟构建你的第一个智能体——边玩边学"
+  },
+  "company": {
+    "en": "Contoso Coffee",
+    "de": "Contoso Coffee",
+    "es": "Contoso Coffee",
+    "zh": "Contoso Coffee"
+  },
+  "languages": [
+    {
+      "code": "en",
+      "label": "English",
+      "flag": "🇬🇧"
+    },
+    {
+      "code": "de",
+      "label": "Deutsch",
+      "flag": "🇩🇪"
+    },
+    {
+      "code": "es",
+      "label": "Español",
+      "flag": "🇪🇸"
+    },
+    {
+      "code": "zh",
+      "label": "中文（简体）",
+      "flag": "🇨🇳"
+    }
+  ],
+  "defaultLanguage": "en",
+  "storyIntro": {
+    "speaker": {
+      "avatar": "👩‍💼",
+      "name": {
+        "en": "Maya Fischer",
+        "de": "Maya Fischer",
+        "es": "Maya Fischer",
+        "zh": "Maya Fischer"
+      },
+      "role": {
+        "en": "Head of Operations, Contoso Coffee",
+        "de": "Leiterin Operations, Contoso Coffee",
+        "es": "Directora de Operaciones, Contoso Coffee",
+        "zh": "Contoso Coffee 运营负责人"
+      }
+    },
+    "chapters": [
+      {
+        "icon": "🏪",
+        "title": {
+          "en": "Welcome to Contoso Coffee!",
+          "de": "Willkommen bei Contoso Coffee!",
+          "es": "¡Bienvenido a Contoso Coffee!",
+          "zh": "欢迎来到 Contoso Coffee！"
+        },
+        "text": {
+          "en": "We run cafés all over Europe. Our baristas make amazing coffee – and they have a **lot** of questions.",
+          "de": "Wir betreiben Cafés in ganz Europa. Unsere Baristas machen großartigen Kaffee – und haben **jede Menge** Fragen.",
+          "es": "Tenemos cafeterías por toda Europa. Nuestros baristas preparan un café increíble… y tienen **muchísimas** preguntas.",
+          "zh": "我们的咖啡店遍布欧洲。我们的咖啡师能做出很棒的咖啡——同时也有**非常多**的问题。"
+        },
+        "stats": [
+          {
+            "en": "☕ 120 cafés",
+            "de": "☕ 120 Cafés",
+            "es": "☕ 120 cafeterías",
+            "zh": "☕ 120 家门店"
+          },
+          {
+            "en": "👩‍🍳 3,000 baristas",
+            "de": "👩‍🍳 3.000 Baristas",
+            "es": "👩‍🍳 3.000 baristas",
+            "zh": "👩‍🍳 3,000 名咖啡师"
+          },
+          {
+            "en": "❓ 1 big problem",
+            "de": "❓ 1 großes Problem",
+            "es": "❓ 1 gran problema",
+            "zh": "❓ 1 个大问题"
+          }
+        ]
+      },
+      {
+        "icon": "😩",
+        "title": {
+          "en": "Houston, we have a problem",
+          "de": "Houston, wir haben ein Problem",
+          "es": "Houston, tenemos un problema",
+          "zh": "休斯敦，我们遇到问题了"
+        },
+        "text": {
+          "en": "*\"How do I swap my shift?\" \"How many vacation days do I have?\" \"The espresso machine is broken – again!\"*\n\nHR and IT answer the **same questions hundreds of times a week**. Everyone is exhausted.",
+          "de": "*„Wie tausche ich meine Schicht?“ „Wie viele Urlaubstage habe ich?“ „Die Espressomaschine ist schon wieder kaputt!“*\n\nHR und IT beantworten **jede Woche hunderte Male dieselben Fragen**. Alle sind erschöpft.",
+          "es": "*«¿Cómo cambio mi turno?» «¿Cuántos días de vacaciones me quedan?» «¡La cafetera se ha vuelto a estropear!»*\n\nRR. HH. y TI responden **las mismas preguntas cientos de veces a la semana**. Todo el mundo está agotado.",
+          "zh": "*“我怎么换班？”“我还有几天年假？”“咖啡机又坏了！”*\n\n人力资源和 IT 部门**每周要回答几百遍同样的问题**。大家都筋疲力尽了。"
+        }
+      },
+      {
+        "icon": "🦸",
+        "title": {
+          "en": "That's where you come in",
+          "de": "Und hier kommst du ins Spiel",
+          "es": "Aquí entras tú",
+          "zh": "现在轮到你登场了"
+        },
+        "text": {
+          "en": "You just joined our brand-new **Agent Builder team**. Your job: build AI agents in **Copilot Studio** that help our people – smartly, safely and without blowing the budget.",
+          "de": "Du bist neu in unserem **Agent-Builder-Team**. Deine Aufgabe: KI-Agenten in **Copilot Studio** bauen, die unseren Leuten helfen – clever, sicher und ohne das Budget zu sprengen.",
+          "es": "Acabas de unirte a nuestro nuevo **equipo de creadores de agentes**. Tu misión: crear agentes de IA en **Copilot Studio** que ayuden a nuestra gente, de forma inteligente, segura y sin disparar el presupuesto.",
+          "zh": "你刚刚加入我们全新的**智能体构建团队**。你的任务：在 **Copilot Studio** 中构建 AI 智能体来帮助我们的员工——聪明、安全，而且不超预算。"
+        }
+      },
+      {
+        "icon": "🏆",
+        "title": {
+          "en": "How you win",
+          "de": "So gewinnst du",
+          "es": "Cómo se gana",
+          "zh": "如何获胜"
+        },
+        "text": {
+          "en": "Beat **8 levels** in about **60 minutes**. Earn XP, keep your combo streak 🔥, defeat the boss levels 👾 and collect badges and cheat cards.\n\nFinish them all and you become a **Copilot Studio Hero**. Ready?",
+          "de": "Schaffe **8 Level** in etwa **60 Minuten**. Sammle XP, halte deine Combo-Serie 🔥, besiege die Boss-Level 👾 und sammle Abzeichen und Spickzettel.\n\nSchaffst du alle, wirst du zum **Copilot Studio Held**. Bereit?",
+          "es": "Supera **8 niveles** en unos **60 minutos**. Gana XP, mantén tu racha de combos 🔥, derrota a los jefes 👾 y colecciona insignias y chuletas.\n\nSi los completas todos, te convertirás en **Héroe de Copilot Studio**. ¿Preparado?",
+          "zh": "在大约 **60 分钟**内闯过 **8 个关卡**。赚取 XP，保持连击 🔥，击败 BOSS 关卡 👾，收集徽章和速查卡。\n\n全部通关，你就是 **Copilot Studio 英雄**。准备好了吗？"
+        },
+        "stats": [
+          {
+            "en": "🗺️ 8 levels",
+            "de": "🗺️ 8 Level",
+            "es": "🗺️ 8 niveles",
+            "zh": "🗺️ 8 个关卡"
+          },
+          {
+            "en": "⏱️ 60 min",
+            "de": "⏱️ 60 Min.",
+            "es": "⏱️ 60 min",
+            "zh": "⏱️ 60 分钟"
+          },
+          {
+            "en": "🏅 8 badges",
+            "de": "🏅 8 Abzeichen",
+            "es": "🏅 8 insignias",
+            "zh": "🏅 8 枚徽章"
+          }
+        ]
+      }
+    ]
+  },
   "durationMinutes": 60,
   "unlockMode": "sequential",
   "unlockAllCode": "OPENALL",
   "feedbackFormUrl": "",
-  "disclaimer": "Community workshop tool – not an official Microsoft training. Copilot Studio changes often; check Microsoft Learn for the latest details.",
+  "liveResults": true,
+  "disclaimer": {
+    "en": "Community workshop tool – not an official Microsoft training. Copilot Studio changes often; check Microsoft Learn for the latest details.",
+    "de": "Community-Workshop-Tool – keine offizielle Microsoft-Schulung. Copilot Studio ändert sich häufig; aktuelle Details findest du auf Microsoft Learn.",
+    "es": "Herramienta comunitaria para talleres, no es una formación oficial de Microsoft. Copilot Studio cambia a menudo; consulta Microsoft Learn para ver los detalles más recientes.",
+    "zh": "社区培训工具，非 Microsoft 官方培训。Copilot Studio 经常更新，最新信息请参阅 Microsoft Learn。"
+  },
   "levels": [
-    { "id": "warmup",   "file": "lessons/00-warmup.json",   "code": "BREW",   "minutes": 5 },
-    { "id": "how",      "file": "lessons/01-how-it-works.json", "code": "ROAST",  "minutes": 8 },
-    { "id": "harness",  "file": "lessons/02-harness.json",  "code": "BLEND",  "minutes": 7 },
-    { "id": "prompt",   "file": "lessons/03-prompts.json",  "code": "LATTE",  "minutes": 10 },
-    { "id": "skills",   "file": "lessons/04-skills-automations.json", "code": "MOCHA", "minutes": 8 },
-    { "id": "control",  "file": "lessons/05-control.json",  "code": "CREMA",  "minutes": 8 },
-    { "id": "breakbot", "file": "lessons/06-break-the-bot.json", "code": "GRIND", "minutes": 8 },
-    { "id": "wrapup",   "file": "lessons/07-wrap-up.json",  "code": "CHEERS", "minutes": 6 }
+    {
+      "id": "warmup",
+      "file": "lessons/00-warmup.json",
+      "code": "BREW",
+      "minutes": 5
+    },
+    {
+      "id": "how",
+      "file": "lessons/01-how-it-works.json",
+      "code": "ROAST",
+      "minutes": 8
+    },
+    {
+      "id": "harness",
+      "file": "lessons/02-harness.json",
+      "code": "BLEND",
+      "minutes": 7
+    },
+    {
+      "id": "prompt",
+      "file": "lessons/03-prompts.json",
+      "code": "LATTE",
+      "minutes": 10
+    },
+    {
+      "id": "skills",
+      "file": "lessons/04-skills-automations.json",
+      "code": "MOCHA",
+      "minutes": 8
+    },
+    {
+      "id": "control",
+      "file": "lessons/05-control.json",
+      "code": "CREMA",
+      "minutes": 8
+    },
+    {
+      "id": "breakbot",
+      "file": "lessons/06-break-the-bot.json",
+      "code": "GRIND",
+      "minutes": 8
+    },
+    {
+      "id": "wrapup",
+      "file": "lessons/07-wrap-up.json",
+      "code": "CHEERS",
+      "minutes": 6
+    }
   ]
 }

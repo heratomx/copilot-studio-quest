@@ -1,0 +1,115 @@
+{
+  "id": "wrapup",
+  "title": "Abschluss",
+  "subtitle": "Finale Runde & dein nächster Agent",
+  "icon": "🏆",
+  "badge": {
+    "name": "Copilot Studio Held",
+    "icon": "🏆",
+    "description": "Hat die Copilot Studio Quest abgeschlossen."
+  },
+  "card": {
+    "title": "Meine nächsten Schritte",
+    "lines": [
+      "Eine Idee wählen, für die sich ein Agent lohnt",
+      "Anweisungen mit Z-K-Q-E-L schreiben",
+      "Eine offizielle Quelle verbinden",
+      "Die 5 Tests durchführen",
+      "Mit einer kleinen Gruppe pilotieren, dann ausweiten"
+    ]
+  },
+  "steps": [
+    {
+      "type": "mcq",
+      "timed": 20,
+      "question": "Blitzrunde ⏱️ Ein Agent besteht vor allem aus…",
+      "options": [
+        "Anweisungen + Wissen + Tools, die auf einem Harness laufen",
+        "Nur einem großen Modell",
+        "Einem Chatbot-Skript nur mit Wenn-dann-Regeln",
+        "E-Mails und Kalendern"
+      ],
+      "answer": 0,
+      "explain": "Anweisungen, Wissen und Tools – ausgeführt von einem Harness und einem Modell.",
+      "topic": "how"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "question": "Blitzrunde ⏱️ Vorhersehbare Helpdesk-Antworten, die festen Pfaden folgen müssen → welcher Harness?",
+      "options": [
+        "GitHub-Copilot-Harness",
+        "Standard-Harness",
+        "Kein Harness",
+        "Egal welcher"
+      ],
+      "answer": 1,
+      "explain": "Regelbasiert und vorhersehbar → Standard-Harness.",
+      "topic": "harness"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "question": "Blitzrunde ⏱️ Wofür steht das L in Z-K-Q-E-L?",
+      "options": [
+        "Länge",
+        "Leitplanken",
+        "Lizenz",
+        "Lustig"
+      ],
+      "answer": 1,
+      "explain": "Leitplanken: was der Agent tut, wenn er etwas nicht weiß oder nicht darf.",
+      "topic": "prompt"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "question": "Blitzrunde ⏱️ Der Agent will gleich 500 Kunden eine E-Mail schicken. Was sollte zuerst passieren?",
+      "options": [
+        "Nichts – abschicken",
+        "Ein Mensch gibt frei",
+        "Mehr Emojis einfügen",
+        "Den Agenten löschen"
+      ],
+      "answer": 1,
+      "explain": "Aktionen mit großer Wirkung → ein Mensch entscheidet mit.",
+      "topic": "control"
+    },
+    {
+      "type": "idea",
+      "title": "Meine Agenten-Idee",
+      "question": "Entwirf den ersten Agenten, den DU nach heute bauen möchtest.",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name des Agenten",
+          "placeholder": "z. B. Reiserichtlinien-Buddy"
+        },
+        {
+          "key": "audience",
+          "label": "Für wen ist er?",
+          "placeholder": "z. B. alle Mitarbeitenden im Vertrieb"
+        },
+        {
+          "key": "problem",
+          "label": "Welches Problem löst er?",
+          "placeholder": "z. B. 200 Reisefragen pro Monat an HR"
+        },
+        {
+          "key": "source",
+          "label": "Vertrauenswürdige Quelle",
+          "placeholder": "z. B. Reiserichtlinie 2026 auf SharePoint"
+        },
+        {
+          "key": "action",
+          "label": "Eine Aktion, die er ausführen könnte",
+          "placeholder": "z. B. einen Reiseantrag erstellen"
+        }
+      ]
+    },
+    {
+      "type": "feedback",
+      "question": "Wie hat dir die Copilot Studio Quest gefallen?"
+    }
+  ]
+}

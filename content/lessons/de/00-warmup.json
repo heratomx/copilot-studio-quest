@@ -1,0 +1,131 @@
+{
+  "id": "warmup",
+  "title": "Willkommen bei Contoso Coffee",
+  "subtitle": "Copilot oder Agent?",
+  "icon": "☕",
+  "badge": {
+    "name": "Entdecker",
+    "icon": "🧭",
+    "description": "Weiß, wann sich ein Agent lohnt."
+  },
+  "card": {
+    "title": "Lohnt sich ein Agent?",
+    "lines": [
+      "Es kommt oft vor (nicht nur einmal)",
+      "Eine klare Gruppe von Menschen braucht es",
+      "Es gibt eine vertrauenswürdige Quelle für die Antwort",
+      "Das Ergebnis ist klar (Antwort, Ticket, Bestellung…)",
+      "Keine heiklen Entscheidungen über Menschen"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Deine Mission",
+      "text": "Contoso Coffee hat **120 Cafés** und ein großes Problem: Alle stellen immer wieder dieselben Fragen.\n\nDu bist das neue **Agent-Builder-Team**. In jedem Level löst du ein Contoso-Problem.\n\n- Beantworte Fragen und sammle **XP**\n- Schließe ein Level ab und erhalte ein **Abzeichen** und einen **Spickzettel**\n- 3 richtige Antworten in Folge = **Combo-Bonus** 🔥\n- Nicht weiter? Nutze einen **Tipp** (kostet 5 XP) oder **50/50**"
+    },
+    {
+      "type": "sort",
+      "question": "Aufwärmen: Einfach Copilot fragen oder einen Agenten bauen?",
+      "buckets": [
+        "💬 Einfach Copilot fragen",
+        "🤖 Agenten bauen"
+      ],
+      "items": [
+        {
+          "text": "Den langen E-Mail-Verlauf von heute Morgen zusammenfassen",
+          "bucket": 0
+        },
+        {
+          "text": "HR-Fragen von Baristas rund um die Uhr in Teams beantworten – immer aus dem HR-Handbuch",
+          "bucket": 1
+        },
+        {
+          "text": "Meinen Absatz höflicher formulieren",
+          "bucket": 0
+        },
+        {
+          "text": "Den Status einer Lieferbestellung prüfen und das Ticket aktualisieren",
+          "bucket": 1
+        },
+        {
+          "text": "5 Namen für ein neues Saisongetränk sammeln",
+          "bucket": 0
+        },
+        {
+          "text": "Jede neue Mitarbeiterin und jeden neuen Mitarbeiter durch dieselben Onboarding-Schritte führen",
+          "bucket": 1
+        }
+      ],
+      "explain": "Copilot ist ideal für **deine eigenen, einmaligen Aufgaben**. Ein Agent lohnt sich, wenn **viele Menschen** die **gleiche Art von Hilfe** aus **derselben vertrauenswürdigen Quelle** brauchen – oder wenn etwas in einem System **erledigt** werden muss."
+    },
+    {
+      "type": "swipe",
+      "question": "Lohnt sich ein Agent? Entscheide für jede Idee.",
+      "left": "👎 Lohnt sich nicht",
+      "right": "👍 Lohnt sich",
+      "cards": [
+        {
+          "text": "Die 50 HR-Fragen beantworten, die Baristas jede Woche stellen",
+          "answer": "right",
+          "why": "Wiederkehrend, klare Zielgruppe, vertrauenswürdige Quelle – ein perfekter erster Agent."
+        },
+        {
+          "text": "Eine Geburtstagsnachricht für eine Kollegin schreiben",
+          "answer": "left",
+          "why": "Eine einmalige Aufgabe. Frag einfach Copilot."
+        },
+        {
+          "text": "Filialleitungen helfen, Material im Bestellsystem zu bestellen",
+          "answer": "right",
+          "why": "Wiederkehrende Aufgabe mit einer klaren Aktion in einem System – Agenten können Tools aufrufen."
+        },
+        {
+          "text": "Entscheiden, wer befördert wird",
+          "answer": "left",
+          "why": "Eine heikle Entscheidung über Menschen. Die bleibt bei Menschen."
+        },
+        {
+          "text": "Neue Mitarbeitende durch ihre Checkliste der ersten Woche führen",
+          "answer": "right",
+          "why": "Für alle dieselben Schritte – einheitlich und leicht messbar."
+        },
+        {
+          "text": "Etwas, das nur eine Person einmal im Jahr fragt",
+          "answer": "left",
+          "why": "Lohnt sich nicht zu bauen, zu testen und zu pflegen."
+        }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Welche Aufgabe ist der BESTE erste Agent für Contoso Coffee?",
+      "options": [
+        "Ein einmaliges kreatives Brainstorming für das Marketing",
+        "Häufige Fragen zu Schichten und Urlaub aus dem HR-Handbuch beantworten",
+        "Entscheiden, welche Filialleitung einen Bonus bekommt",
+        "Die persönliche Rede des CEO schreiben"
+      ],
+      "answer": 1,
+      "hint": "Denk an: häufig + viele Menschen + vertrauenswürdige Quelle.",
+      "explain": "Häufige Fragen + klare Zielgruppe + eine vertrauenswürdige Quelle = ein toller erster Agent."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Nutze den 5-Punkte-Check: kommt oft vor, viele brauchen es, es gibt eine vertrauenswürdige Quelle, das Ergebnis ist klar, keine heiklen Entscheidungen über Menschen.",
+      "Notiere 3 Fragen oder Aufgaben, die sich in deinem Team jede Woche wiederholen, und bewerte sie mit dem Check.",
+      "Fang klein an: eine Zielgruppe, eine Quelle, eine klare Aufgabe."
+    ],
+    "links": [
+      {
+        "title": "Agenten – Übersicht",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/agents-overview"
+      },
+      {
+        "title": "Copilot Studio – Übersicht",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+      }
+    ]
+  }
+}

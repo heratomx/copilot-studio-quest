@@ -3,7 +3,11 @@
   "title": "How Copilot Studio works",
   "subtitle": "The anatomy of an agent",
   "icon": "🏗️",
-  "badge": { "name": "Architect", "icon": "🏗️", "description": "Knows what an agent is made of." },
+  "badge": {
+    "name": "Architect",
+    "icon": "🏗️",
+    "description": "Knows what an agent is made of."
+  },
   "card": {
     "title": "Agent anatomy",
     "lines": [
@@ -21,11 +25,31 @@
       "text": "When you open an agent in Copilot Studio you see its building blocks. Tap the numbers to learn what each one does.",
       "image": "assets/screens/01-agent-overview.svg",
       "callouts": [
-        { "x": 30, "y": 25, "label": "Instructions – how the agent should behave, its tone and its limits" },
-        { "x": 30, "y": 50, "label": "Knowledge – the sources it answers from (SharePoint, files, websites…)" },
-        { "x": 30, "y": 75, "label": "Tools – actions it can take (connectors, MCP servers, workflows)" },
-        { "x": 82, "y": 30, "label": "Test pane – chat with your agent before anyone else does" },
-        { "x": 88, "y": 8, "label": "Publish – make the agent available in Teams, Copilot or a website" }
+        {
+          "x": 30,
+          "y": 25,
+          "label": "Instructions – how the agent should behave, its tone and its limits"
+        },
+        {
+          "x": 30,
+          "y": 50,
+          "label": "Knowledge – the sources it answers from (SharePoint, files, websites…)"
+        },
+        {
+          "x": 30,
+          "y": 75,
+          "label": "Tools – actions it can take (connectors, MCP servers, workflows)"
+        },
+        {
+          "x": 82,
+          "y": 30,
+          "label": "Test pane – chat with your agent before anyone else does"
+        },
+        {
+          "x": 88,
+          "y": 8,
+          "label": "Publish – make the agent available in Teams, Copilot or a website"
+        }
       ]
     },
     {
@@ -36,14 +60,36 @@
     {
       "type": "sort",
       "question": "Put each piece into the right building block.",
-      "buckets": ["📝 Instructions", "📚 Knowledge", "🔧 Tools"],
+      "buckets": [
+        "📝 Instructions",
+        "📚 Knowledge",
+        "🔧 Tools"
+      ],
       "items": [
-        { "text": "The HR handbook on SharePoint", "bucket": 1 },
-        { "text": "\"Always answer in a friendly tone\"", "bucket": 0 },
-        { "text": "Create a repair ticket for a broken espresso machine", "bucket": 2 },
-        { "text": "The public Contoso Coffee website", "bucket": 1 },
-        { "text": "\"Never give legal advice\"", "bucket": 0 },
-        { "text": "Send an email through Outlook", "bucket": 2 }
+        {
+          "text": "The HR handbook on SharePoint",
+          "bucket": 1
+        },
+        {
+          "text": "\"Always answer in a friendly tone\"",
+          "bucket": 0
+        },
+        {
+          "text": "Create a repair ticket for a broken espresso machine",
+          "bucket": 2
+        },
+        {
+          "text": "The public Contoso Coffee website",
+          "bucket": 1
+        },
+        {
+          "text": "\"Never give legal advice\"",
+          "bucket": 0
+        },
+        {
+          "text": "Send an email through Outlook",
+          "bucket": 2
+        }
       ],
       "explain": "**Instructions** shape behavior, **knowledge** is what the agent knows, and **tools** let it take action."
     },
@@ -51,7 +97,12 @@
       "type": "hotspot",
       "question": "Find it! Where would you click to add the HR handbook so the agent can answer from it?",
       "image": "assets/screens/01-agent-overview.svg",
-      "target": { "x": 49, "y": 44, "w": 13, "h": 9 },
+      "target": {
+        "x": 49,
+        "y": 44,
+        "w": 13,
+        "h": 9
+      },
       "hint": "The handbook is something the agent should KNOW.",
       "explain": "Use **+ Add knowledge** to connect SharePoint sites, files or websites."
     },
@@ -79,5 +130,22 @@
       "answer": 1,
       "explain": "Knowledge-based answers can show **citations**. Teach users to click them – it builds trust and catches mistakes."
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Remember the anatomy: instructions, knowledge and tools – run by a harness and a model.",
+      "Open an existing agent and find each building block on screen.",
+      "Teach yourself to check answers through their citations."
+    ],
+    "links": [
+      {
+        "title": "Copilot Studio overview",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+      },
+      {
+        "title": "Harnesses in Copilot Studio",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview"
+      }
+    ]
+  }
 }

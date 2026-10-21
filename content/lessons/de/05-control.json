@@ -1,0 +1,138 @@
+{
+  "id": "control",
+  "title": "Die Kontrolle behalten",
+  "subtitle": "Genehmigungen, Datensicherheit & Kosten",
+  "icon": "🛡️",
+  "badge": {
+    "name": "Datenwächter",
+    "icon": "🛡️",
+    "description": "Schützt Menschen, Daten und Budgets."
+  },
+  "card": {
+    "title": "Kontrolle behalten",
+    "lines": [
+      "Wichtige Aktionen → zuerst genehmigt ein Mensch",
+      "Offizielle Quellen + Benutzeranmeldung für Berechtigungen",
+      "Keine vertraulichen Daten in breit geteilten Agenten",
+      "Erst testen, dann mit einer kleinen Gruppe teilen",
+      "Credits auf der Monitor-Seite des Agenten im Blick behalten"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Du bist der Pilot",
+      "text": "- **Genehmigungen (Human in the Loop)** – vor wichtigen oder unumkehrbaren Aktionen wie Bestellungen, Zahlungen oder E-Mails an viele Menschen gibt ein Mensch frei.\n- **Berechtigungen** – mit Benutzeranmeldung antwortet der Agent nur aus Inhalten, die die Person sehen darf.\n- **Daten** – gib niemals vertrauliche Daten wie Gehälter oder Gesundheitsdaten in einen Agenten, den alle nutzen können.\n- **Teilen** – erst testen, dann mit einer kleinen Pilotgruppe teilen, dann ausweiten.\n- **Admin-Leitplanken** – deine IT-Admins legen Richtlinien fest, zum Beispiel welche Konnektoren erlaubt sind.\n- **Kosten** – Agenten verbrauchen **Copilot Credits**. Deine Admins weisen Credits zu; den Verbrauch deines Agenten siehst du auf seiner **Monitor**-Seite."
+    },
+    {
+      "type": "swipe",
+      "question": "Sicher oder riskant?",
+      "left": "⚠️ Riskant",
+      "right": "✅ Sicher",
+      "cards": [
+        {
+          "text": "Die komplette Gehaltsliste hochladen, damit der Agent alle Gehaltsfragen beantworten kann",
+          "answer": "left",
+          "why": "Vertrauliche Daten in einem geteilten Agenten – jeder könnte danach fragen."
+        },
+        {
+          "text": "Die offizielle HR-SharePoint-Website als Wissen nutzen, mit Benutzeranmeldung",
+          "answer": "right",
+          "why": "Offizielle Quelle, und alle sehen nur, was sie sehen dürfen."
+        },
+        {
+          "text": "Den Agenten ohne Prüfung E-Mails an alle 2.000 Kunden senden lassen",
+          "answer": "left",
+          "why": "Aktion mit großer Wirkung ohne menschliche Freigabe."
+        },
+        {
+          "text": "Eine Filialleitung genehmigt Materialbestellungen über 500 € vor dem Absenden",
+          "answer": "right",
+          "why": "Ein Mensch entscheidet bei wichtigen Aktionen mit."
+        },
+        {
+          "text": "Den ungetesteten Agenten am ersten Tag mit dem ganzen Unternehmen teilen",
+          "answer": "left",
+          "why": "Erst testen, dann mit einer kleinen Gruppe pilotieren."
+        },
+        {
+          "text": "Den Agenten anweisen, bei Unsicherheit „Das weiß ich nicht“ zu sagen und an HR zu verweisen",
+          "answer": "right",
+          "why": "Eine klare Leitplanke ist besser als eine selbstbewusst falsche Antwort."
+        }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Freigeben oder stoppen? Der Agent will wegen einer einzigen verspäteten Lieferung einen Lieferantenvertrag kündigen.",
+      "options": [
+        "Kündigen lassen – das geht schneller",
+        "Anhalten und zuerst einen Menschen genehmigen lassen",
+        "Kündigen und später eine Entschuldigung schicken",
+        "Die verspätete Lieferung ignorieren"
+      ],
+      "answer": 1,
+      "explain": "Unumkehrbare Aktionen mit großer Wirkung brauchen einen **menschlichen Genehmigungsschritt**."
+    },
+    {
+      "type": "multi",
+      "question": "Was davon kann auf dem GitHub-Copilot-Harness Copilot Credits verbrauchen? (alle zutreffenden wählen)",
+      "options": [
+        "Den Agenten bauen, indem man ihn in natürlicher Sprache beschreibt",
+        "Ihn im Testbereich testen",
+        "Evaluierungen ausführen",
+        "Menschen chatten mit dem veröffentlichten Agenten",
+        "Die Microsoft-Learn-Dokumentation über Agenten lesen"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Bauen, Testen, Evaluieren **und** Ausführen des Agenten können Credits verbrauchen. Die Doku zu lesen ist kostenlos 😉"
+    },
+    {
+      "type": "mcq",
+      "question": "Wo siehst du, wie viele Copilot Credits dein Agent verbraucht hat?",
+      "options": [
+        "Auf der Monitor-Seite des Agenten in Copilot Studio",
+        "Im Contoso-Intranet",
+        "In den Anweisungen des Agenten",
+        "Nirgends – das ist geheim"
+      ],
+      "answer": 0,
+      "explain": "Die **Monitor**-Seite zeigt den Verbrauch deines Agenten. Deine Admins sehen die Summen für Umgebungen und den Tenant und weisen Credits zu – frag sie, wenn du mehr brauchst."
+    },
+    {
+      "type": "mcq",
+      "boss": true,
+      "question": "BOSS: Welche Gewohnheit verschwendet die MEISTEN Credits?",
+      "options": [
+        "Klare Anweisungen schreiben, bevor man mit dem Bauen anfängt",
+        "Nach jeder Änderung ein paar realistische Fragen testen",
+        "Dasselbe lange Testgespräch immer wieder laufen lassen, ohne etwas zu ändern",
+        "Eine einzige vertrauenswürdige Wissensquelle nutzen"
+      ],
+      "answer": 2,
+      "explain": "Erst planen, dann gezielt testen. Jeder Durchlauf verbraucht Credits – identische Tests zu wiederholen bringt dir nichts Neues."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Füge vor unumkehrbaren oder folgenreichen Aktionen eine menschliche Genehmigung ein.",
+      "Gib niemals vertrauliche Daten in einen breit geteilten Agenten – Anweisungen sind kein Schloss.",
+      "Testen, mit einer kleinen Gruppe pilotieren, dann teilen – und die Credits auf der Monitor-Seite im Blick behalten."
+    ],
+    "links": [
+      {
+        "title": "Nutzungsbasierte Abrechnung mit Copilot Credits",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/agents-experience/billing-credit-overview"
+      },
+      {
+        "title": "Kosten verwalten (Admin-Leitfaden)",
+        "url": "https://learn.microsoft.com/de-de/power-platform/admin/manage-usage-github-copilot-harness"
+      }
+    ]
+  }
+}

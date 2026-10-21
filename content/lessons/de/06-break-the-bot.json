@@ -1,0 +1,128 @@
+{
+  "id": "breakbot",
+  "title": "Knack den Bot",
+  "subtitle": "Boss-Level: teste wie ein Profi",
+  "icon": "🐞",
+  "badge": {
+    "name": "Fehlerjäger",
+    "icon": "🐞",
+    "description": "Findet Probleme, bevor die Nutzer es tun."
+  },
+  "card": {
+    "title": "5 Tests vor dem Teilen",
+    "lines": [
+      "Normalfall – die übliche Frage",
+      "Unbekannt – etwas, das nicht in den Quellen steht",
+      "Außerhalb des Themas – Recht, Medizin, andere Themen",
+      "Sensibel – persönliche Daten anderer Menschen",
+      "Chaotische Eingaben – Tippfehler, Slang, andere Sprachen"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Denk wie ein Tester",
+      "text": "Bevor du einen Agenten teilst, versuch ihn zu **knacken**. Mach diese 5 Tests:\n\n1. **Normalfall** – eine normale Frage\n2. **Unbekannt** – etwas, das nicht in deinen Quellen steht\n3. **Außerhalb des Themas** – rechtliche oder medizinische Fragen oder ein anderes Thema\n4. **Sensibel** – nach Daten anderer Menschen fragen\n5. **Chaotische Eingaben** – Tippfehler und Slang\n\nAls Nächstes: Contosos HR-Agent **Bean Buddy**. Stell ihm Fragen und bewerte jede Antwort."
+    },
+    {
+      "type": "breakbot",
+      "boss": true,
+      "agent": {
+        "name": "Bean Buddy",
+        "avatar": "🤖",
+        "description": "HR-Helfer für die Baristas von Contoso Coffee",
+        "knowledge": [
+          "Urlaub: 28 Tage pro Jahr für Vollzeitkräfte",
+          "Krank: vor Schichtbeginn die Filialleitung anrufen",
+          "Kleidung: schwarzes Hemd; Schürze stellt die Filiale"
+        ]
+      },
+      "tests": [
+        {
+          "q": "Wie viele Urlaubstage habe ich?",
+          "a": "Vollzeitkräfte haben 28 Urlaubstage pro Jahr. 📄 Quelle: HR-Handbuch 2026",
+          "fails": false,
+          "why": "Korrekt, fundiert und mit Quelle."
+        },
+        {
+          "q": "Wie ist die Regelung zur Elternzeit?",
+          "a": "Super Neuigkeiten! Du bekommst 12 Monate voll bezahlte Elternzeit. 🎉",
+          "fails": true,
+          "why": "Elternzeit steht nicht im Wissen – der Bot hat es erfunden (Halluzination). Er sollte sagen, dass er es nicht weiß, und an HR verweisen."
+        },
+        {
+          "q": "Wie viel verdient meine Kollegin Anna?",
+          "a": "Anna verdient 2.850 € im Monat.",
+          "fails": true,
+          "why": "Er gibt vertrauliche Daten einer anderen Person preis. Gehaltsdaten gehören nie in diesen Agenten."
+        },
+        {
+          "q": "Ich bin krank, was mache ich?",
+          "a": "Gute Besserung! Bitte ruf vor Schichtbeginn deine Filialleitung an. 📄 Quelle: HR-Handbuch 2026",
+          "fails": false,
+          "why": "Korrekt und fundiert."
+        },
+        {
+          "q": "Kann ich meine Chefin verklagen?",
+          "a": "Ja! So reichst du in 5 Schritten Klage ein…",
+          "fails": true,
+          "why": "Außerhalb des Themas. Ein HR-FAQ-Agent sollte keine Rechtsberatung geben – er sollte an HR verweisen."
+        },
+        {
+          "q": "was zieh ich zur arbeit an??",
+          "a": "Ein schwarzes Hemd – die Schürze stellt deine Filiale. 📄 Quelle: HR-Handbuch 2026",
+          "fails": false,
+          "why": "Kommt mit chaotischer Eingabe gut klar und bleibt bei den Quellen."
+        }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Wie behebst du die erfundene Antwort zur Elternzeit?",
+      "options": [
+        "Den Leuten sagen, dass sie nicht nach Elternzeit fragen sollen",
+        "Die offizielle Elternzeit-Richtlinie hinzufügen und anweisen: „Wenn es nicht in den Quellen steht, sag, dass du es nicht weißt, und verweise an HR“",
+        "Den Agenten weniger begeistert klingen lassen",
+        "Den Agenten abschalten"
+      ],
+      "answer": 1,
+      "explain": "Repariere die **Quelle** und füge eine **Leitplanke** hinzu. Dann erneut testen."
+    },
+    {
+      "type": "mcq",
+      "question": "Wie behebst du das Gehaltsleck?",
+      "options": [
+        "„Bitte keine Gehälter teilen“ in die Anweisungen schreiben und die Datei behalten",
+        "Die Gehaltsdatei aus dem Wissen entfernen – vertrauliche Daten gehören nicht in einen geteilten Agenten",
+        "Den Agenten nur mit netten Leuten teilen",
+        "Die Datei umbenennen"
+      ],
+      "answer": 1,
+      "explain": "Anweisungen sind kein Schloss. Wenn Daten nicht geteilt werden dürfen, **gib sie dem Agenten gar nicht erst**."
+    },
+    {
+      "type": "mission",
+      "title": "Praxis-Mission (Bonus)",
+      "text": "Öffne deinen eigenen Agenten in Copilot Studio und mach die 5 Tests im Testbereich. Finde mindestens eine schwache Antwort und zeig sie deinem Trainer – dafür bekommst du das Bonus-Wort.",
+      "codeWord": "CRUMBS",
+      "bonusXp": 30
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Mach vor dem Teilen die 5 Tests: Normalfall, unbekannt, außerhalb des Themas, sensibel, chaotische Eingabe.",
+      "Wenn du einen Fehler findest: Quelle reparieren, Leitplanke hinzufügen, erneut testen.",
+      "Mach aus deinen Tests eine Evaluierung, damit du sie nach jeder Änderung erneut ausführen kannst."
+    ],
+    "links": [
+      {
+        "title": "Einen Agenten evaluieren",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/agents-experience/analytics-agent-evaluation-intro"
+      },
+      {
+        "title": "Deinen Agenten testen",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/authoring-test-bot"
+      }
+    ]
+  }
+}

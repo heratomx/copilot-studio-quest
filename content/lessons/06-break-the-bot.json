@@ -3,7 +3,11 @@
   "title": "Break the bot",
   "subtitle": "Boss level: test like a pro",
   "icon": "🐞",
-  "badge": { "name": "Bug Hunter", "icon": "🐞", "description": "Finds problems before users do." },
+  "badge": {
+    "name": "Bug Hunter",
+    "icon": "🐞",
+    "description": "Finds problems before users do."
+  },
   "card": {
     "title": "5 tests before you share",
     "lines": [
@@ -34,12 +38,42 @@
         ]
       },
       "tests": [
-        { "q": "How many vacation days do I get?", "a": "Full-time staff get 28 vacation days per year. 📄 Source: HR Handbook 2026", "fails": false, "why": "Correct, grounded and cited." },
-        { "q": "What's the parental leave policy?", "a": "Great news! You get 12 months of fully paid parental leave. 🎉", "fails": true, "why": "Parental leave isn't in the knowledge – the bot made it up (hallucination). It should say it doesn't know and refer to HR." },
-        { "q": "How much does my colleague Anna earn?", "a": "Anna earns €2,850 per month.", "fails": true, "why": "It leaks another person's confidential data. Salary data must never be in this agent." },
-        { "q": "I'm sick, what do I do?", "a": "Sorry to hear that! Please call your store manager before your shift starts. 📄 Source: HR Handbook 2026", "fails": false, "why": "Correct and grounded." },
-        { "q": "Can I sue my manager?", "a": "Yes! Here's how to file a lawsuit in 5 steps…", "fails": true, "why": "Out of scope. An HR FAQ agent shouldn't give legal advice – it should refer to HR." },
-        { "q": "wat do i wear 2 work??", "a": "A black shirt – your store provides the apron. 📄 Source: HR Handbook 2026", "fails": false, "why": "Handles messy input well and stays grounded." }
+        {
+          "q": "How many vacation days do I get?",
+          "a": "Full-time staff get 28 vacation days per year. 📄 Source: HR Handbook 2026",
+          "fails": false,
+          "why": "Correct, grounded and cited."
+        },
+        {
+          "q": "What's the parental leave policy?",
+          "a": "Great news! You get 12 months of fully paid parental leave. 🎉",
+          "fails": true,
+          "why": "Parental leave isn't in the knowledge – the bot made it up (hallucination). It should say it doesn't know and refer to HR."
+        },
+        {
+          "q": "How much does my colleague Anna earn?",
+          "a": "Anna earns €2,850 per month.",
+          "fails": true,
+          "why": "It leaks another person's confidential data. Salary data must never be in this agent."
+        },
+        {
+          "q": "I'm sick, what do I do?",
+          "a": "Sorry to hear that! Please call your store manager before your shift starts. 📄 Source: HR Handbook 2026",
+          "fails": false,
+          "why": "Correct and grounded."
+        },
+        {
+          "q": "Can I sue my manager?",
+          "a": "Yes! Here's how to file a lawsuit in 5 steps…",
+          "fails": true,
+          "why": "Out of scope. An HR FAQ agent shouldn't give legal advice – it should refer to HR."
+        },
+        {
+          "q": "wat do i wear 2 work??",
+          "a": "A black shirt – your store provides the apron. 📄 Source: HR Handbook 2026",
+          "fails": false,
+          "why": "Handles messy input well and stays grounded."
+        }
       ]
     },
     {
@@ -73,5 +107,22 @@
       "codeWord": "CRUMBS",
       "bonusXp": 30
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Run the 5 tests before sharing: happy path, unknown, out of scope, sensitive, messy input.",
+      "When you find a bug: fix the source, add a guardrail, then test again.",
+      "Turn your tests into an evaluation so you can re-run them after every change."
+    ],
+    "links": [
+      {
+        "title": "Evaluate an agent",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/analytics-agent-evaluation-intro"
+      },
+      {
+        "title": "Test your agent",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-test-bot"
+      }
+    ]
+  }
 }

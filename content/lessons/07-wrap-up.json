@@ -3,7 +3,11 @@
   "title": "Wrap up",
   "subtitle": "Final round & your next agent",
   "icon": "🏆",
-  "badge": { "name": "Copilot Studio Hero", "icon": "🏆", "description": "Completed the Copilot Studio Quest." },
+  "badge": {
+    "name": "Copilot Studio Hero",
+    "icon": "🏆",
+    "description": "Completed the Copilot Studio Quest."
+  },
   "card": {
     "title": "My next steps",
     "lines": [
@@ -19,44 +23,88 @@
       "type": "mcq",
       "timed": 20,
       "question": "Speed round ⏱️ An agent is mainly made of…",
-      "options": ["Instructions + knowledge + tools, running on a harness", "Only a big model", "A chatbot script with if/else rules only", "Emails and calendars"],
+      "options": [
+        "Instructions + knowledge + tools, running on a harness",
+        "Only a big model",
+        "A chatbot script with if/else rules only",
+        "Emails and calendars"
+      ],
       "answer": 0,
-      "explain": "Instructions, knowledge and tools – run by a harness and a model."
+      "explain": "Instructions, knowledge and tools – run by a harness and a model.",
+      "topic": "how"
     },
     {
       "type": "mcq",
       "timed": 20,
       "question": "Speed round ⏱️ Predictable help-desk answers that must follow defined paths → which harness?",
-      "options": ["GitHub Copilot harness", "Standard harness", "No harness", "Any – it doesn't matter"],
+      "options": [
+        "GitHub Copilot harness",
+        "Standard harness",
+        "No harness",
+        "Any – it doesn't matter"
+      ],
       "answer": 1,
-      "explain": "Rule-based and predictable → Standard harness."
+      "explain": "Rule-based and predictable → Standard harness.",
+      "topic": "harness"
     },
     {
       "type": "mcq",
       "timed": 20,
       "question": "Speed round ⏱️ What does the last G in G-C-S-E-G stand for?",
-      "options": ["Grammar", "Guardrails", "Graphics", "Goodbye"],
+      "options": [
+        "Grammar",
+        "Guardrails",
+        "Graphics",
+        "Goodbye"
+      ],
       "answer": 1,
-      "explain": "Guardrails: what the agent does when it doesn't know or isn't allowed."
+      "explain": "Guardrails: what the agent does when it doesn't know or isn't allowed.",
+      "topic": "prompt"
     },
     {
       "type": "mcq",
       "timed": 20,
       "question": "Speed round ⏱️ The agent is about to email 500 customers. What should happen first?",
-      "options": ["Nothing – send it", "A human approves", "Add more emojis", "Delete the agent"],
+      "options": [
+        "Nothing – send it",
+        "A human approves",
+        "Add more emojis",
+        "Delete the agent"
+      ],
       "answer": 1,
-      "explain": "High-impact actions → human in the loop."
+      "explain": "High-impact actions → human in the loop.",
+      "topic": "control"
     },
     {
       "type": "idea",
       "title": "My agent idea",
       "question": "Design the first agent YOU want to build after today.",
       "fields": [
-        { "key": "name", "label": "Agent name", "placeholder": "e.g. Travel Policy Buddy" },
-        { "key": "audience", "label": "Who is it for?", "placeholder": "e.g. all sales employees" },
-        { "key": "problem", "label": "Which problem does it solve?", "placeholder": "e.g. 200 travel questions per month to HR" },
-        { "key": "source", "label": "Trusted source", "placeholder": "e.g. Travel Policy 2026 on SharePoint" },
-        { "key": "action", "label": "One action it could take", "placeholder": "e.g. create a travel request" }
+        {
+          "key": "name",
+          "label": "Agent name",
+          "placeholder": "e.g. Travel Policy Buddy"
+        },
+        {
+          "key": "audience",
+          "label": "Who is it for?",
+          "placeholder": "e.g. all sales employees"
+        },
+        {
+          "key": "problem",
+          "label": "Which problem does it solve?",
+          "placeholder": "e.g. 200 travel questions per month to HR"
+        },
+        {
+          "key": "source",
+          "label": "Trusted source",
+          "placeholder": "e.g. Travel Policy 2026 on SharePoint"
+        },
+        {
+          "key": "action",
+          "label": "One action it could take",
+          "placeholder": "e.g. create a travel request"
+        }
       ]
     },
     {

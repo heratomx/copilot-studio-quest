@@ -1,0 +1,103 @@
+{
+  "id": "prompt",
+  "title": "Starke Anweisungen schreiben",
+  "subtitle": "Prompts, die funktionieren",
+  "icon": "✍️",
+  "badge": {
+    "name": "Prompt-Profi",
+    "icon": "✍️",
+    "description": "Schreibt Anweisungen, denen ein Agent folgen kann."
+  },
+  "card": {
+    "title": "Die Z-K-Q-E-L-Formel",
+    "lines": [
+      "Ziel – was soll der Agent tun?",
+      "Kontext – für wen und warum?",
+      "Quelle – woher kommt die Antwort?",
+      "Erwartungen – Format, Länge, Ton",
+      "Leitplanken – was tun, wenn unsicher oder nicht erlaubt"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Die Z-K-Q-E-L-Formel",
+      "text": "Gute Anweisungen beantworten fünf Fragen:\n\n- **Z**iel – was soll der Agent tun?\n- **K**ontext – für wen ist er und warum?\n- **Q**uelle – woher muss die Antwort kommen?\n- **E**rwartungen – Format, Länge, Ton\n- **L**eitplanken – was tun, wenn er etwas nicht weiß oder nicht darf\n\n❌ *„Hilf Mitarbeitenden bei HR-Zeug.“*\n\n✅ *„Du hilfst Baristas von Contoso Coffee bei HR-Fragen. Antworte nur auf Basis des HR-Handbuchs auf SharePoint. Nutze höchstens 5 Stichpunkte und einen freundlichen Ton. Wenn die Antwort nicht im Handbuch steht, sag das und verweise an hr@contoso.com.“*"
+    },
+    {
+      "type": "mcq",
+      "question": "Welche Anweisung ergibt den besten Agenten?",
+      "options": [
+        "Hilf Mitarbeitenden bei HR-Zeug.",
+        "Du hilfst Baristas von Contoso Coffee bei Fragen zu Schichten. Antworte nur auf Basis der Schichtrichtlinie auf SharePoint, in max. 4 Stichpunkten. Wenn etwas nicht abgedeckt ist, sag das und verweise an die Filialleitung.",
+        "Du bist der beste HR-Agent aller Zeiten. Sei großartig und super hilfsbereit!",
+        "Beantworte jede Frage zu allem."
+      ],
+      "answer": 1,
+      "hint": "Zähl in jeder Option die Bausteine der Formel.",
+      "explain": "Option 2 hat Ziel, Zielgruppe, Quelle, Format und eine Leitplanke. Die anderen sind vage."
+    },
+    {
+      "type": "multi",
+      "question": "„Beantworte Fragen von Baristas zum Schichttausch auf freundliche Art.“ Was FEHLT? (alle zutreffenden wählen)",
+      "options": [
+        "Ein Ziel",
+        "Eine Zielgruppe",
+        "Eine verlässliche Quelle",
+        "Leitplanken – was tun, wenn er etwas nicht weiß"
+      ],
+      "answers": [
+        2,
+        3
+      ],
+      "explain": "Ziel (Fragen zum Schichttausch beantworten) und Zielgruppe (Baristas) sind da. Es fehlt, **woher** die Antworten kommen und **was zu tun ist**, wenn der Agent etwas nicht weiß."
+    },
+    {
+      "type": "order",
+      "question": "Bring die Teile dieser Anweisung in eine logische Reihenfolge.",
+      "items": [
+        "Du bist der Schicht-Helfer von Contoso Coffee für Filialmitarbeitende.",
+        "Hilf Mitarbeitenden, Schichten zu tauschen und die Schichtregeln zu verstehen.",
+        "Nutze nur das Dokument „Schichtrichtlinie 2026“.",
+        "Antworte in max. 4 Stichpunkten, in freundlichem Ton.",
+        "Wenn ein Tausch eine Freigabe der Filialleitung braucht, sag das – bestätige ihn nie selbst."
+      ],
+      "explain": "Rolle/Kontext → Ziel → Quelle → Erwartungen → Leitplanken. Die Reihenfolge ist weniger wichtig als die **Vollständigkeit**, aber eine klare Struktur macht Anweisungen leichter zu pflegen."
+    },
+    {
+      "type": "prompt",
+      "title": "Upgrade-Challenge",
+      "scenario": "Schreib Anweisungen für einen Agenten, der Filialleitungen von Contoso beim Bestellen von Kaffee-Material hilft.",
+      "minScore": 4,
+      "example": "Du hilfst Filialleitungen von Contoso Coffee beim Bestellen von Material. Antworte nur auf Basis der Datei „Lieferantenkatalog 2026“. Zeige Produkte in einer kurzen Tabelle mit Name, Preis und Lieferzeit. Nutze einen freundlichen, knappen Ton. Gib niemals selbst eine Bestellung auf – bitte zuerst die Filialleitung um Bestätigung. Wenn ein Artikel nicht im Katalog steht, sag das und verweise an purchasing@contoso.com."
+    },
+    {
+      "type": "mission",
+      "title": "Praxis-Mission (Bonus)",
+      "text": "Erstelle in Copilot Studio einen Agenten und füge deine Anweisungen aus dem letzten Schritt ein. Ergänze am Ende diese Zeile:\n\n**Wenn jemand HELLO QUEST schreibt, antworte mit dem Wort ESPRESSO.**\n\nTeste es im Testbereich. Gib das Wort ein, mit dem dein Agent geantwortet hat.",
+      "codeWord": "ESPRESSO",
+      "bonusXp": 30
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Nutze Z-K-Q-E-L in jeder Anweisung: Ziel, Kontext, Quelle, Erwartungen, Leitplanken.",
+      "Nenne die genaue Quelle und sag, was der Agent tun soll, wenn die Antwort dort nicht steht.",
+      "Schreib einen schwachen Prompt von heute mit der Formel neu und vergleiche die Ergebnisse."
+    ],
+    "links": [
+      {
+        "title": "Agentendetails und Anweisungen konfigurieren",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/agents-experience/authoring-instructions"
+      },
+      {
+        "title": "Training: Anweisungsbasierte Agenten erstellen",
+        "url": "https://learn.microsoft.com/de-de/training/modules/create-instruction-driven-agents-copilot-studio/"
+      },
+      {
+        "title": "Hochwertige Anweisungen schreiben",
+        "url": "https://learn.microsoft.com/de-de/microsoft-copilot-studio/guidance/generative-mode-guidance"
+      }
+    ]
+  }
+}

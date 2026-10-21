@@ -1,0 +1,82 @@
+{
+  "id": "prompt",
+  "title": "写出好的指令",
+  "subtitle": "有效的提示词",
+  "icon": "✍️",
+  "badge": { "name": "提示词高手", "icon": "✍️", "description": "能写出智能体可以遵循的指令。" },
+  "card": {
+    "title": "五要素公式：目标-背景-来源-期望-护栏",
+    "lines": [
+      "目标——智能体要做什么？",
+      "背景——为谁？为什么？",
+      "来源——答案从哪里来？",
+      "期望——格式、长度、语气",
+      "护栏——不确定或不被允许时怎么办"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "五要素公式",
+      "text": "好的指令要回答五个问题：\n\n- **目标**——智能体要做什么？\n- **背景**——它为谁服务，为什么？\n- **来源**——答案必须来自哪里？\n- **期望**——格式、长度、语气\n- **护栏**——不知道或不被允许时该怎么做\n\n❌ *“帮员工处理人事方面的事情。”*\n\n✅ *“你帮助 Contoso Coffee 的咖啡师解答人事问题。只根据 SharePoint 上的人事手册回答。最多使用 5 个要点，语气友好。如果手册中没有答案，请如实说明，并引导对方联系 hr@contoso.com。”*"
+    },
+    {
+      "type": "mcq",
+      "question": "哪条指令能做出最好的智能体？",
+      "options": [
+        "帮员工处理人事方面的事情。",
+        "你帮助 Contoso Coffee 的咖啡师解答排班问题。只根据 SharePoint 上的排班政策回答，最多 4 个要点。如果没有涉及，请如实说明，并让对方联系门店经理。",
+        "你是史上最强的人事智能体。要非常棒、超级有帮助！",
+        "回答关于任何事情的任何问题。"
+      ],
+      "answer": 1,
+      "hint": "数一数每个选项包含公式中的几个要素。",
+      "explain": "选项 2 包含目标、对象、来源、格式和护栏，其他选项都很含糊。"
+    },
+    {
+      "type": "multi",
+      "question": "“以友好的方式回答咖啡师关于换班的问题。”缺少了什么？（选择所有正确项）",
+      "options": ["目标", "对象", "可信的来源", "护栏——不知道时该怎么做"],
+      "answers": [2, 3],
+      "explain": "目标（回答换班问题）和对象（咖啡师）都有了。缺少的是答案**从哪里来**，以及智能体不知道时**该怎么做**。"
+    },
+    {
+      "type": "order",
+      "question": "把这条指令的各部分按合理的顺序排列。",
+      "items": [
+        "你是 Contoso Coffee 面向门店员工的排班助手。",
+        "帮助员工换班并理解排班规则。",
+        "只使用《2026 排班政策》文档。",
+        "最多用 4 个要点回答，语气友好。",
+        "如果换班需要门店经理批准，请说明——绝不要自行确认。"
+      ],
+      "explain": "角色/背景 → 目标 → 来源 → 期望 → 护栏。顺序没有**完整性**重要，但清晰的结构让指令更易维护。"
+    },
+    {
+      "type": "prompt",
+      "title": "升级挑战",
+      "scenario": "为一个帮助 Contoso 门店经理订购咖啡物料的智能体写指令。",
+      "minScore": 4,
+      "example": "你帮助 Contoso Coffee 的门店经理订购物料。只根据《2026 供应商目录》文件回答。用简短的表格展示产品，包括名称、价格和交货时间。使用友好、简洁的语气。绝不要自行下单——先请门店经理确认。如果目录中没有某件商品，请如实说明，并转给 purchasing@contoso.com。"
+    },
+    {
+      "type": "mission",
+      "title": "动手任务（加分）",
+      "text": "在 Copilot Studio 中创建一个智能体，并粘贴你在上一步写的指令。在末尾加上这一行：\n\n**当有人输入 HELLO QUEST 时，回复单词 ESPRESSO。**\n\n在测试窗格中测试。输入你的智能体回复的那个单词。",
+      "codeWord": "ESPRESSO",
+      "bonusXp": 30
+    }
+  ],
+  "focus": {
+    "tips": [
+      "每条指令都用上五要素：目标、背景、来源、期望、护栏。",
+      "写明确切的来源，并说明答案不在其中时智能体应该怎么做。",
+      "用这个公式改写今天的一条弱提示词，并比较结果。"
+    ],
+    "links": [
+      { "title": "配置智能体详细信息和指令", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/agents-experience/authoring-instructions" },
+      { "title": "培训：创建由指令驱动的智能体", "url": "https://learn.microsoft.com/zh-cn/training/modules/create-instruction-driven-agents-copilot-studio/" },
+      { "title": "编写高质量的指令", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/guidance/generative-mode-guidance" }
+    ]
+  }
+}

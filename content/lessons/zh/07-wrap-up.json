@@ -1,0 +1,71 @@
+{
+  "id": "wrapup",
+  "title": "总结",
+  "subtitle": "最后一轮与你的下一个智能体",
+  "icon": "🏆",
+  "badge": { "name": "Copilot Studio 英雄", "icon": "🏆", "description": "完成了 Copilot Studio 闯关。" },
+  "card": {
+    "title": "我的下一步",
+    "lines": [
+      "选一个值得做成智能体的想法",
+      "用五要素写指令",
+      "连接一个官方来源",
+      "完成 5 项测试",
+      "先小范围试点，再逐步扩大"
+    ]
+  },
+  "steps": [
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "how",
+      "question": "快问快答 ⏱️ 一个智能体主要由什么构成？",
+      "options": ["运行在 harness 上的指令 + 知识 + 工具", "只有一个大模型", "只有“如果……就……”规则的聊天机器人脚本", "邮件和日历"],
+      "answer": 0,
+      "explain": "指令、知识和工具——由 harness 和模型来运行。"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "harness",
+      "question": "快问快答 ⏱️ 必须按既定路径给出可预测回答的服务台 → 用哪种 harness？",
+      "options": ["GitHub Copilot harness", "标准 harness", "不需要 harness", "哪种都行"],
+      "answer": 1,
+      "explain": "基于规则、可预测 → 标准 harness。"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "prompt",
+      "question": "快问快答 ⏱️ 五要素公式中的“护栏”指的是什么？",
+      "options": ["回答的长度", "智能体不知道或不被允许时该怎么做", "许可证类型", "有趣的语气"],
+      "answer": 1,
+      "explain": "护栏：智能体不知道某事或不被允许时该怎么做。"
+    },
+    {
+      "type": "mcq",
+      "timed": 20,
+      "topic": "control",
+      "question": "快问快答 ⏱️ 智能体马上要给 500 位客户发邮件。首先应该发生什么？",
+      "options": ["什么都不用——直接发", "由人来审批", "多加点表情符号", "删除智能体"],
+      "answer": 1,
+      "explain": "影响重大的操作 → 由人参与把关。"
+    },
+    {
+      "type": "idea",
+      "title": "我的智能体想法",
+      "question": "设计你在今天之后最想构建的第一个智能体。",
+      "fields": [
+        { "key": "name", "label": "智能体名称", "placeholder": "例如：差旅政策小助手" },
+        { "key": "audience", "label": "为谁服务？", "placeholder": "例如：全体销售人员" },
+        { "key": "problem", "label": "解决什么问题？", "placeholder": "例如：每月有 200 个差旅问题发给人事部" },
+        { "key": "source", "label": "可信来源", "placeholder": "例如：SharePoint 上的《2026 差旅政策》" },
+        { "key": "action", "label": "它可以执行的一项操作", "placeholder": "例如：创建差旅申请" }
+      ]
+    },
+    {
+      "type": "feedback",
+      "question": "你觉得 Copilot Studio 闯关怎么样？"
+    }
+  ]
+}

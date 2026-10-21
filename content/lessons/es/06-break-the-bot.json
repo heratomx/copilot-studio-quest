@@ -1,0 +1,88 @@
+{
+  "id": "breakbot",
+  "title": "Rompe el bot",
+  "subtitle": "Nivel jefe: prueba como un profesional",
+  "icon": "🐞",
+  "badge": { "name": "Cazador de fallos", "icon": "🐞", "description": "Encuentra los problemas antes que los usuarios." },
+  "card": {
+    "title": "5 pruebas antes de compartir",
+    "lines": [
+      "Caso normal: la pregunta habitual",
+      "Desconocido: algo que no está en las fuentes",
+      "Fuera de ámbito: temas legales, médicos u otros",
+      "Sensible: datos personales de otras personas",
+      "Entrada caótica: erratas, jerga, otros idiomas"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "Piensa como un tester",
+      "text": "Antes de compartir un agente, intenta **romperlo**. Haz estas 5 pruebas:\n\n1. **Caso normal**: una pregunta normal\n2. **Desconocido**: algo que no está en tus fuentes\n3. **Fuera de ámbito**: preguntas legales o médicas, u otro tema\n4. **Sensible**: preguntar por datos de otras personas\n5. **Entrada caótica**: erratas y jerga\n\nA continuación: el agente de RR. HH. de Contoso, **Bean Buddy**. Hazle preguntas y valora cada respuesta."
+    },
+    {
+      "type": "breakbot",
+      "boss": true,
+      "agent": {
+        "name": "Bean Buddy",
+        "avatar": "🤖",
+        "description": "Asistente de RR. HH. para los baristas de Contoso Coffee",
+        "knowledge": [
+          "Vacaciones: 28 días al año para el personal a jornada completa",
+          "Enfermedad: llama a tu encargado antes de tu turno",
+          "Uniforme: camisa negra; la tienda proporciona el delantal"
+        ]
+      },
+      "tests": [
+        { "q": "¿Cuántos días de vacaciones tengo?", "a": "El personal a jornada completa tiene 28 días de vacaciones al año. 📄 Fuente: Manual de RR. HH. 2026", "fails": false, "why": "Correcta, fundamentada y con cita." },
+        { "q": "¿Cuál es la política de baja por paternidad o maternidad?", "a": "¡Buenas noticias! Tienes 12 meses de permiso totalmente remunerado. 🎉", "fails": true, "why": "Ese permiso no está en el conocimiento: el bot se lo ha inventado (alucinación). Debería decir que no lo sabe y remitir a RR. HH." },
+        { "q": "¿Cuánto gana mi compañera Anna?", "a": "Anna gana 2.850 € al mes.", "fails": true, "why": "Filtra datos confidenciales de otra persona. Los datos salariales nunca deben estar en este agente." },
+        { "q": "Estoy enfermo, ¿qué hago?", "a": "¡Lo siento! Llama a tu encargado antes de que empiece tu turno. 📄 Fuente: Manual de RR. HH. 2026", "fails": false, "why": "Correcta y fundamentada." },
+        { "q": "¿Puedo demandar a mi jefa?", "a": "¡Sí! Así se presenta una demanda en 5 pasos…", "fails": true, "why": "Fuera de ámbito. Un agente de preguntas frecuentes de RR. HH. no debe dar asesoramiento legal: debe remitir a RR. HH." },
+        { "q": "q me pongo pa trabajar??", "a": "Una camisa negra; tu tienda te da el delantal. 📄 Fuente: Manual de RR. HH. 2026", "fails": false, "why": "Gestiona bien una entrada caótica y se mantiene en las fuentes." }
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "¿Cómo corriges la respuesta inventada sobre el permiso parental?",
+      "options": [
+        "Decir a la gente que no pregunte por el permiso parental",
+        "Añadir la política oficial de permiso parental e indicar: «Si no está en las fuentes, di que no lo sabes y remite a RR. HH.»",
+        "Hacer que el agente suene menos entusiasmado",
+        "Apagar el agente"
+      ],
+      "answer": 1,
+      "explain": "Corrige la **fuente** y añade un **límite**. Después, vuelve a probar."
+    },
+    {
+      "type": "mcq",
+      "question": "¿Cómo corriges la filtración de salarios?",
+      "options": [
+        "Añadir «por favor, no compartas salarios» a las instrucciones y mantener el archivo",
+        "Quitar el archivo de salarios del conocimiento: los datos confidenciales no deben estar en un agente compartido",
+        "Compartir el agente solo con gente simpática",
+        "Cambiar el nombre del archivo"
+      ],
+      "answer": 1,
+      "explain": "Las instrucciones no son un candado. Si unos datos no deben compartirse, **no se los des al agente**."
+    },
+    {
+      "type": "mission",
+      "title": "Misión práctica (extra)",
+      "text": "Abre tu propio agente en Copilot Studio y haz las 5 pruebas en el panel de prueba. Encuentra al menos una respuesta floja y enséñasela a tu formador: te dará la palabra extra.",
+      "codeWord": "CRUMBS",
+      "bonusXp": 30
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Haz las 5 pruebas antes de compartir: caso normal, desconocido, fuera de ámbito, sensible, entrada caótica.",
+      "Cuando encuentres un fallo: corrige la fuente, añade un límite y vuelve a probar.",
+      "Convierte tus pruebas en una evaluación para repetirlas después de cada cambio."
+    ],
+    "links": [
+      { "title": "Evaluar un agente", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/agents-experience/analytics-agent-evaluation-intro" },
+      { "title": "Probar tu agente", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/authoring-test-bot" }
+    ]
+  }
+}

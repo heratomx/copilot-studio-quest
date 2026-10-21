@@ -3,7 +3,11 @@
   "title": "Welcome to Contoso Coffee",
   "subtitle": "Copilot, or an agent?",
   "icon": "☕",
-  "badge": { "name": "Explorer", "icon": "🧭", "description": "Knows when a task deserves an agent." },
+  "badge": {
+    "name": "Explorer",
+    "icon": "🧭",
+    "description": "Knows when a task deserves an agent."
+  },
   "card": {
     "title": "Is it agent-worthy?",
     "lines": [
@@ -23,14 +27,35 @@
     {
       "type": "sort",
       "question": "Warm-up: should you just ask Copilot, or build an agent?",
-      "buckets": ["💬 Just ask Copilot", "🤖 Build an agent"],
+      "buckets": [
+        "💬 Just ask Copilot",
+        "🤖 Build an agent"
+      ],
       "items": [
-        { "text": "Summarize the long email thread I got this morning", "bucket": 0 },
-        { "text": "Answer baristas' HR questions 24/7 in Teams, always from the HR handbook", "bucket": 1 },
-        { "text": "Rewrite my paragraph so it sounds more polite", "bucket": 0 },
-        { "text": "Check the status of a supply order and update the ticket", "bucket": 1 },
-        { "text": "Brainstorm 5 names for a new seasonal drink", "bucket": 0 },
-        { "text": "Guide every new hire through the same onboarding steps", "bucket": 1 }
+        {
+          "text": "Summarize the long email thread I got this morning",
+          "bucket": 0
+        },
+        {
+          "text": "Answer baristas' HR questions 24/7 in Teams, always from the HR handbook",
+          "bucket": 1
+        },
+        {
+          "text": "Rewrite my paragraph so it sounds more polite",
+          "bucket": 0
+        },
+        {
+          "text": "Check the status of a supply order and update the ticket",
+          "bucket": 1
+        },
+        {
+          "text": "Brainstorm 5 names for a new seasonal drink",
+          "bucket": 0
+        },
+        {
+          "text": "Guide every new hire through the same onboarding steps",
+          "bucket": 1
+        }
       ],
       "explain": "Copilot is great for **your own one-off tasks**. An agent pays off when **many people** need the **same kind of help** from the **same trusted source** – or when something needs to **take action** in a system."
     },
@@ -40,12 +65,36 @@
       "left": "👎 Not agent-worthy",
       "right": "👍 Agent-worthy",
       "cards": [
-        { "text": "Answer the same 50 HR questions baristas ask every week", "answer": "right", "why": "Repeated, clear audience, trusted source – a perfect first agent." },
-        { "text": "Write one birthday message for a colleague", "answer": "left", "why": "A one-off task. Just ask Copilot." },
-        { "text": "Help store managers order supplies from the ordering system", "answer": "right", "why": "Repeated task with a clear action in a system – agents can call tools." },
-        { "text": "Decide which employee gets promoted", "answer": "left", "why": "A sensitive judgement about people. Keep humans in charge." },
-        { "text": "Walk new hires through their first-week checklist", "answer": "right", "why": "Same steps for everyone – consistent and easy to measure." },
-        { "text": "Something that only one person asks once a year", "answer": "left", "why": "Not worth building, testing and maintaining an agent." }
+        {
+          "text": "Answer the same 50 HR questions baristas ask every week",
+          "answer": "right",
+          "why": "Repeated, clear audience, trusted source – a perfect first agent."
+        },
+        {
+          "text": "Write one birthday message for a colleague",
+          "answer": "left",
+          "why": "A one-off task. Just ask Copilot."
+        },
+        {
+          "text": "Help store managers order supplies from the ordering system",
+          "answer": "right",
+          "why": "Repeated task with a clear action in a system – agents can call tools."
+        },
+        {
+          "text": "Decide which employee gets promoted",
+          "answer": "left",
+          "why": "A sensitive judgement about people. Keep humans in charge."
+        },
+        {
+          "text": "Walk new hires through their first-week checklist",
+          "answer": "right",
+          "why": "Same steps for everyone – consistent and easy to measure."
+        },
+        {
+          "text": "Something that only one person asks once a year",
+          "answer": "left",
+          "why": "Not worth building, testing and maintaining an agent."
+        }
       ]
     },
     {
@@ -61,5 +110,22 @@
       "hint": "Think: often + many people + trusted source.",
       "explain": "Frequent questions + clear audience + one trusted source = a great first agent."
     }
-  ]
+  ],
+  "focus": {
+    "tips": [
+      "Use the 5-point check: it happens often, many people need it, there's a trusted source, the outcome is clear, and there's no sensitive judgement about people.",
+      "List 3 questions or tasks your team repeats every week and score them with the check.",
+      "Start small: one audience, one source, one clear job."
+    ],
+    "links": [
+      {
+        "title": "Agents overview",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-overview"
+      },
+      {
+        "title": "Copilot Studio overview",
+        "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+      }
+    ]
+  }
 }

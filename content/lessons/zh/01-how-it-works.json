@@ -1,0 +1,94 @@
+{
+  "id": "how",
+  "title": "Copilot Studio 如何运作",
+  "subtitle": "智能体的构成",
+  "icon": "🏗️",
+  "badge": { "name": "架构师", "icon": "🏗️", "description": "清楚智能体由什么构成。" },
+  "card": {
+    "title": "智能体的构成",
+    "lines": [
+      "指令——智能体如何表现",
+      "知识——它依据什么回答",
+      "工具——它能做什么（连接器、MCP、API）",
+      "Harness——模型与智能体之间的引擎",
+      "渠道——人们在哪里使用它（Teams、Copilot、网站）"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "每个智能体都有相同的组成部分",
+      "text": "在 Copilot Studio 中打开一个智能体，就能看到它的组成部分。点按数字，了解每个部分的作用。",
+      "image": "assets/screens/01-agent-overview.svg",
+      "callouts": [
+        { "x": 30, "y": 25, "label": "指令——智能体应如何表现、它的语气和边界" },
+        { "x": 30, "y": 50, "label": "知识——它用来回答的来源（SharePoint、文件、网站……）" },
+        { "x": 30, "y": 75, "label": "工具——它可以执行的操作（连接器、MCP 服务器、工作流）" },
+        { "x": 82, "y": 30, "label": "测试窗格——在别人之前先和你的智能体聊聊" },
+        { "x": 88, "y": 8, "label": "发布——让智能体在 Teams、Copilot 或网站中可用" }
+      ]
+    },
+    {
+      "type": "info",
+      "title": "模型 + harness = 引擎",
+      "text": "**模型**负责思考：理解问题并写出答案。\n\n**Harness** 是围绕模型的引擎。它决定何时调用模型、给模型发送什么（指令、知识、工具结果），解读返回的内容，并调用合适的工具。\n\n**你**负责设计智能体，harness 和模型负责其余部分。"
+    },
+    {
+      "type": "sort",
+      "question": "把每一项放进正确的组成部分。",
+      "buckets": ["📝 指令", "📚 知识", "🔧 工具"],
+      "items": [
+        { "text": "SharePoint 上的人事手册", "bucket": 1 },
+        { "text": "“始终用友好的语气回答”", "bucket": 0 },
+        { "text": "为坏掉的咖啡机创建维修工单", "bucket": 2 },
+        { "text": "Contoso Coffee 的公开网站", "bucket": 1 },
+        { "text": "“绝不提供法律建议”", "bucket": 0 },
+        { "text": "通过 Outlook 发送邮件", "bucket": 2 }
+      ],
+      "explain": "**指令**塑造行为，**知识**是智能体知道的内容，**工具**让它能够采取行动。"
+    },
+    {
+      "type": "hotspot",
+      "question": "找一找！要添加人事手册让智能体据此回答，你会点哪里？",
+      "image": "assets/screens/01-agent-overview.svg",
+      "target": { "x": 49, "y": 44, "w": 13, "h": 9 },
+      "hint": "手册是智能体应该“知道”的东西。",
+      "explain": "使用 **+ Add knowledge**（添加知识）连接 SharePoint 站点、文件或网站。"
+    },
+    {
+      "type": "order",
+      "question": "一位咖啡师问：“我有几天年假？”请把步骤按正确顺序排列。",
+      "items": [
+        "咖啡师在 Teams 中提问",
+        "Harness 和模型判断需要什么",
+        "智能体搜索人事知识来源",
+        "模型根据找到的内容撰写答案",
+        "答案连同来源引用一起显示"
+      ],
+      "explain": "提问 → 规划 → 搜索知识 → 生成答案 → **附带引用**显示，方便大家核对。"
+    },
+    {
+      "type": "mcq",
+      "question": "智能体的回答听起来很棒。咖啡师怎样核对它的出处？",
+      "options": [
+        "直接相信——AI 总是对的",
+        "查看链接到来源的引用",
+        "让智能体保证答案正确",
+        "打电话给 IT 支持"
+      ],
+      "answer": 1,
+      "explain": "基于知识的回答可以显示**引用**。教大家点开引用——既能建立信任，也能发现错误。"
+    }
+  ],
+  "focus": {
+    "tips": [
+      "记住构成：指令、知识和工具，由 harness 和模型来运行。",
+      "打开一个现有的智能体，在屏幕上找到每个组成部分。",
+      "养成通过引用核对答案的习惯。"
+    ],
+    "links": [
+      { "title": "Copilot Studio 概述", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/fundamentals-what-is-copilot-studio" },
+      { "title": "Copilot Studio 中的 harness", "url": "https://learn.microsoft.com/zh-cn/microsoft-copilot-studio/harnesses-overview" }
+    ]
+  }
+}

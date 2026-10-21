@@ -1,0 +1,88 @@
+{
+  "id": "skills",
+  "title": "Conocimiento, skills y automatizaciones",
+  "subtitle": "Haz que tu agente actúe",
+  "icon": "⚡",
+  "badge": { "name": "As de la automatización", "icon": "⚡", "description": "Conecta los agentes con conocimiento y acciones." },
+  "card": {
+    "title": "¿Qué pieza?",
+    "lines": [
+      "Conocimiento: fuentes a partir de las que responder",
+      "Herramientas: acciones sueltas en un sistema",
+      "Flujos de trabajo: varios pasos automatizados seguidos",
+      "Skills: saber hacer reutilizable que se carga cuando hace falta",
+      "Desencadenadores: inician el agente cuando pasa algo"
+    ]
+  },
+  "steps": [
+    {
+      "type": "info",
+      "title": "De responder a actuar",
+      "text": "- **Conocimiento**: las fuentes a partir de las que responde el agente: SharePoint, archivos, sitios web, Dataverse.\n- **Herramientas**: acciones sueltas en otros sistemas mediante conectores, servidores MCP o API REST. Ejemplo: crear un ticket.\n- **Flujos de trabajo**: varios pasos automatizados que el agente puede iniciar. Ejemplo: la incorporación de un nuevo empleado.\n- **Skills**: saber hacer empaquetado y reutilizable (instrucciones, plantillas, reglas) que el agente usa cuando procede. Disponible en el harness de GitHub Copilot.\n- **Desencadenadores**: inician el agente automáticamente cuando ocurre algo, por ejemplo un correo nuevo.\n\n**Recuerda:** el agente es tan bueno como sus fuentes. Los archivos antiguos o duplicados provocan respuestas incorrectas."
+    },
+    {
+      "type": "sort",
+      "question": "¿Conocimiento, herramienta, flujo de trabajo o skill?",
+      "buckets": ["📚 Conocimiento", "🔧 Herramienta", "🔁 Flujo de trabajo", "🎓 Skill"],
+      "items": [
+        { "text": "Horarios de las tiendas en el sitio web de Contoso", "bucket": 0 },
+        { "text": "Crear un ticket de reparación para una cafetera estropeada", "bucket": 1 },
+        { "text": "Nueva incorporación → enviar correo de bienvenida, solicitar cuentas, reservar formación", "bucket": 2 },
+        { "text": "La forma estándar de Contoso de redactar un informe de incidencias (plantilla + reglas)", "bucket": 3 },
+        { "text": "Lista de precios de proveedores en Excel", "bucket": 0 },
+        { "text": "Consultar un pedido en el sistema de pedidos", "bucket": 1 }
+      ],
+      "explain": "Conocimiento = **saber**. Herramienta = **hacer una cosa**. Flujo de trabajo = **hacer varios pasos**. Skill = **saber hacer bien un trabajo**."
+    },
+    {
+      "type": "multi",
+      "question": "¡Detecta las malas fuentes! ¿Cuáles NO deberían ser conocimiento del agente de RR. HH.? (elige todas las correctas)",
+      "image": "assets/screens/04-knowledge-sources.svg",
+      "options": [
+        "Manual de RR. HH. 2026: sitio oficial de RR. HH. en SharePoint",
+        "Manual de RR. HH. 2019 - copia antigua.pdf",
+        "Copia de Copia de Normas de vacaciones FINAL v3.docx (OneDrive personal)",
+        "Política de turnos 2026: responsable RR. HH., revisada cada mes",
+        "Artículo de Wikipedia sobre el café"
+      ],
+      "answers": [1, 2, 4],
+      "explain": "Usa **una fuente oficial, actual y con responsable**. Las copias antiguas y los borradores personales provocan respuestas contradictorias, y las fuentes ajenas al tema añaden ruido."
+    },
+    {
+      "type": "mcq",
+      "question": "Cada vez que un proveedor envía una factura por correo, un agente debe revisarla y archivarla. ¿Qué inicia el agente?",
+      "options": [
+        "Una persona tiene que escribirle un mensaje al agente",
+        "Un desencadenador, por ejemplo «cuando llega un correo nuevo»",
+        "El agente mira el buzón cuando le apetece",
+        "Una fuente de conocimiento"
+      ],
+      "answer": 1,
+      "explain": "Los **desencadenadores** permiten que los agentes se inicien con eventos, sin que nadie chatee. Combínalos con aprobaciones para las acciones importantes."
+    },
+    {
+      "type": "mcq",
+      "question": "Tu agente dice «No lo sé» a una pregunta que SABES que está en el manual. ¿Causa más probable?",
+      "options": [
+        "El modelo está roto",
+        "El archivo no se ha añadido o aún no está indexado, o el usuario no tiene acceso a él",
+        "Los agentes no pueden leer manuales",
+        "La pregunta era demasiado educada"
+      ],
+      "answer": 1,
+      "hint": "Piensa en la fuente y en quién puede abrirla.",
+      "explain": "Comprueba que la fuente está añadida y terminada de indexar, y que el usuario tiene permiso. Los agentes solo responden con lo que cada usuario puede ver."
+    }
+  ],
+  "focus": {
+    "tips": [
+      "Conocimiento = saber, herramienta = hacer una cosa, flujo de trabajo = hacer varios pasos, skill = saber hacer bien un trabajo.",
+      "Usa una fuente oficial y actual con un responsable claro: elimina copias antiguas y borradores personales.",
+      "Si el agente dice «No lo sé», comprueba: ¿la fuente está añadida, terminada de indexar y el usuario tiene acceso?"
+    ],
+    "links": [
+      { "title": "Agregar fuentes de conocimiento a un agente", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/agents-experience/knowledge-add-existing-copilot" },
+      { "title": "Orquestación generativa: herramientas, temas y desencadenadores", "url": "https://learn.microsoft.com/es-es/microsoft-copilot-studio/guidance/generative-orchestration" }
+    ]
+  }
+}

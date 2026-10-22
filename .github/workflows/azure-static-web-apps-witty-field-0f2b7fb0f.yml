@@ -21,6 +21,15 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: api/package-lock.json
+      - name: Test API storage authentication
+        run: |
+          npm ci --prefix api --no-fund --no-audit
+          npm test --prefix api
       - name: Get GitHub identity token
         uses: actions/github-script@v9
         id: idtoken

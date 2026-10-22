@@ -1,11 +1,11 @@
 'use strict';
 /* In-memory Azure Table Storage simulator for local testing (subset of the REST API).
-   Verifies SharedKeyLite signatures like the real service, and pages query results
+   Verifies SharedKeyLite signatures or an explicitly supplied test bearer token, and pages query results
    (small page size) so continuation handling gets exercised. */
 const http = require('http');
 const crypto = require('crypto');
 
-function startTableSim({ port = 0, account = 'devacct', key = crypto.randomBytes(32).toString('base64'), pageSize = 3 } = {}) {
+function startTableSim({ port = 0, account = 'devacct', key = crypto.randomBytes(32).toString('base64'), pageSize = 3, bearerToken = null } = {}) {
   const tables = new Map(); // name -> Map("pk\u0000rk" -> entity)
   const stats = { requests: 0, authFailures: 0, byMethod: {} };
   const err = (res, status, code) => { res.writeHead(status, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ 'odata.error': { code, message: { lang: 'en-US', value: code } } })); };
@@ -17,10 +17,12 @@ function startTableSim({ port = 0, account = 'devacct', key = crypto.randomBytes
       stats.requests++; stats.byMethod[req.method] = (stats.byMethod[req.method] || 0) + 1;
       const url = new URL(req.url, 'http://x');
       const path = url.pathname;
-      // ---- auth (SharedKeyLite) ----
+      // ---- auth ----
       const date = req.headers['x-ms-date'];
       const auth = req.headers['authorization'] || '';
-      const expected = 'SharedKeyLite ' + account + ':' + crypto.createHmac('sha256', Buffer.from(key, 'base64')).update(date + '\n' + '/' + account + path, 'utf8').digest('base64');
+      const expected = bearerToken
+        ? 'Bearer ' + bearerToken
+        : 'SharedKeyLite ' + account + ':' + crypto.createHmac('sha256', Buffer.from(key, 'base64')).update(date + '\n' + '/' + account + path, 'utf8').digest('base64');
       if (!date || auth !== expected || Math.abs(Date.parse(date) - Date.now()) > 15 * 60e3) { stats.authFailures++; return err(res, 403, 'AuthenticationFailed'); }
       if (!req.headers['x-ms-version']) return err(res, 400, 'MissingRequiredHeader');
       let body = null;

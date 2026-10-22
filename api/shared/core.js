@@ -1,7 +1,9 @@
 'use strict';
 /* Live results logic. Kept free of Azure Functions specifics so it can be tested locally.
    App settings (Static Web App > Settings > Environment variables):
-     RESULTS_STORAGE  – storage account connection string (required for live results)
+     RESULTS_STORAGE_AUTH - "entra" or "shared-key" (legacy default)
+     RESULTS_STORAGE_ACCOUNT + AZURE_TENANT_ID/CLIENT_ID/CLIENT_SECRET - Entra configuration
+     RESULTS_STORAGE  - legacy storage account connection string
      TRAINER_KEY      – password for the trainer dashboard (min. 10 characters)
      LIVE_RESULTS     – optional; set to "off" to stop ALL storage access immediately   */
 const crypto = require('crypto');
@@ -12,19 +14,44 @@ const CACHE_MS = 20000;          // settings/session cache per function instance
 const THROTTLE_MS = 1500;        // min gap between writes from one player
 const MAX_HOURS = 48;
 
-let client = null, clientCs = null, tablesReady = false;
+let client = null, clientConfig = null, tablesReady = false;
 const cache = new Map();          // key -> { at, value }
 const lastWrite = new Map();      // pid -> timestamp
 
 function env(name) { return (process.env[name] || '').trim(); }
 function hardOff() { return env('LIVE_RESULTS').toLowerCase() === 'off'; }
+function storageConfiguration() {
+  const auth = env('RESULTS_STORAGE_AUTH').toLowerCase() || 'shared-key';
+  return auth === 'entra'
+    ? { auth, account: env('RESULTS_STORAGE_ACCOUNT'), tenantId: env('AZURE_TENANT_ID'), clientId: env('AZURE_CLIENT_ID'), clientSecret: env('AZURE_CLIENT_SECRET') }
+    : { auth, connectionString: env('RESULTS_STORAGE') };
+}
+function storageConfigured(config) {
+  return config.auth === 'entra'
+    ? [config.account, config.tenantId, config.clientId, config.clientSecret].every(Boolean)
+    : config.auth === 'shared-key' && !!config.connectionString;
+}
 function getClient(fetchImpl) {
-  const cs = env('RESULTS_STORAGE');
-  if (!cs) return null;
-  if (!client || cs !== clientCs) {
-    const conn = parseConnectionString(cs);
-    if (!conn) return null;
-    client = new TableClient(conn, fetchImpl); clientCs = cs; tablesReady = false;
+  const config = storageConfiguration();
+  if (!['entra', 'shared-key'].includes(config.auth)) throw new Error('RESULTS_STORAGE_AUTH must be "entra" or "shared-key"');
+  if (config.auth === 'shared-key' && !config.connectionString) return null;
+  const signature = crypto.createHash('sha256').update(JSON.stringify(config)).digest('hex');
+  if (!client || signature !== clientConfig) {
+    let conn;
+    if (config.auth === 'entra') {
+      if (!storageConfigured(config)) throw new Error('Entra storage requires RESULTS_STORAGE_ACCOUNT, AZURE_TENANT_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET');
+      if (!/^[a-z0-9]{3,24}$/.test(config.account)) throw new Error('RESULTS_STORAGE_ACCOUNT must be a 3-24 character Azure storage account name');
+      const { ClientSecretCredential } = require('@azure/identity');
+      conn = {
+        endpoint: `https://${config.account}.table.core.windows.net`,
+        credential: new ClientSecretCredential(config.tenantId, config.clientId, config.clientSecret)
+      };
+    } else {
+      conn = parseConnectionString(config.connectionString);
+      if (!conn) return null;
+    }
+    client = new TableClient(conn, fetchImpl); clientConfig = signature; tablesReady = false;
+    cache.clear(); lastWrite.clear();
   }
   return client;
 }
@@ -40,7 +67,7 @@ async function cached(key, fn) {
   cache.set(key, { at: Date.now(), value });
   return value;
 }
-function resetCaches() { cache.clear(); lastWrite.clear(); tablesReady = false; client = null; clientCs = null; }
+function resetCaches() { cache.clear(); lastWrite.clear(); tablesReady = false; client = null; clientConfig = null; }
 
 const ok = (body, status = 200) => ({ status, body });
 const fail = (status, error, extra) => ({ status, body: { error, ...(extra || {}) } });
@@ -116,9 +143,9 @@ async function purgeSession(c, code) {
 // ---------- participant endpoints ----------
 async function status({ query }, fetchImpl) {
   if (hardOff()) return ok({ enabled: false, reason: 'off' });
-  const c = getClient(fetchImpl);
-  if (!c) return ok({ enabled: false, reason: 'not-configured' });
   try {
+    const c = getClient(fetchImpl);
+    if (!c) return ok({ enabled: false, reason: 'not-configured' });
     await ensureTables(c);
     const st = await getSettings(c);
     if (!st.enabled) return ok({ enabled: false, reason: 'paused' });
@@ -132,15 +159,15 @@ async function status({ query }, fetchImpl) {
 
 async function progress({ body }, fetchImpl) {
   if (hardOff()) return fail(403, 'off');
-  const c = getClient(fetchImpl);
-  if (!c) return fail(403, 'not-configured');
-  body = body && typeof body === 'object' ? body : {};
-  const code = String(body.code || '').toUpperCase();
-  const pid = String(body.pid || '');
-  if (!CODE_RE.test(code) || !PID_RE.test(pid)) return fail(400, 'invalid');
-  const now = Date.now();
-  if (now - (lastWrite.get(pid) || 0) < THROTTLE_MS) return fail(429, 'slow-down');
   try {
+    const c = getClient(fetchImpl);
+    if (!c) return fail(403, 'not-configured');
+    body = body && typeof body === 'object' ? body : {};
+    const code = String(body.code || '').toUpperCase();
+    const pid = String(body.pid || '');
+    if (!CODE_RE.test(code) || !PID_RE.test(pid)) return fail(400, 'invalid');
+    const now = Date.now();
+    if (now - (lastWrite.get(pid) || 0) < THROTTLE_MS) return fail(429, 'slow-down');
     await ensureTables(c);
     const st = await getSettings(c);
     if (!st.enabled) return fail(403, 'paused');
@@ -162,11 +189,11 @@ async function progress({ body }, fetchImpl) {
 async function trainer({ action, method, query, body, key }, fetchImpl) {
   if (!env('TRAINER_KEY') || env('TRAINER_KEY').length < 10) return fail(503, 'trainer-key-not-configured');
   if (!trainerOk(key)) return fail(401, 'unauthorized');
-  if (hardOff()) return ok({ enabled: false, hardOff: true, configured: !!env('RESULTS_STORAGE'), sessions: [] });
-  const c = getClient(fetchImpl);
-  if (!c) return fail(503, 'storage-not-configured');
-  body = body && typeof body === 'object' ? body : {};
+  if (hardOff()) return ok({ enabled: false, hardOff: true, configured: storageConfigured(storageConfiguration()), sessions: [] });
   try {
+    const c = getClient(fetchImpl);
+    if (!c) return fail(503, 'storage-not-configured');
+    body = body && typeof body === 'object' ? body : {};
     await ensureTables(c);
     switch (action) {
       case 'overview': {

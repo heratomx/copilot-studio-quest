@@ -1,6 +1,6 @@
 'use strict';
-/* Minimal Azure Table Storage client (REST + SharedKeyLite). No npm packages needed.
-   Connection string comes from the RESULTS_STORAGE app setting, e.g.
+/* Azure Table Storage REST client: Entra token credentials or legacy SharedKeyLite.
+   Legacy connection strings come from RESULTS_STORAGE, e.g.
    DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=yyy;EndpointSuffix=core.windows.net
    (an explicit TableEndpoint=... is also supported). */
 const crypto = require('crypto');
@@ -35,9 +35,17 @@ class TableClient {
   async request(method, resource, { query, body, headers } = {}) {
     const date = new Date().toUTCString();
     const pathOnly = '/' + resource;
-    // SharedKeyLite for the Table service: StringToSign = Date + "\n" + CanonicalizedResource
-    const canonical = '/' + this.c.account + pathOnly;
-    const sig = crypto.createHmac('sha256', this.c.key).update(date + '\n' + canonical, 'utf8').digest('base64');
+    let authorization;
+    if (this.c.credential) {
+      const token = await this.c.credential.getToken('https://storage.azure.com/.default');
+      if (!token || !token.token) throw new TableError(503, 'StorageTokenUnavailable', 'Entra ID did not return a storage access token');
+      authorization = `Bearer ${token.token}`;
+    } else {
+      // SharedKeyLite: StringToSign = Date + "\n" + CanonicalizedResource.
+      const canonical = '/' + this.c.account + pathOnly;
+      const sig = crypto.createHmac('sha256', this.c.key).update(date + '\n' + canonical, 'utf8').digest('base64');
+      authorization = `SharedKeyLite ${this.c.account}:${sig}`;
+    }
     const qs = query ? '?' + Object.entries(query).filter(([, v]) => v != null).map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&') : '';
     const h = {
       'x-ms-date': date,
@@ -45,7 +53,7 @@ class TableClient {
       'DataServiceVersion': '3.0;NetFx',
       'MaxDataServiceVersion': '3.0;NetFx',
       'Accept': 'application/json;odata=nometadata',
-      'Authorization': `SharedKeyLite ${this.c.account}:${sig}`,
+      'Authorization': authorization,
       ...(headers || {})
     };
     let payload;

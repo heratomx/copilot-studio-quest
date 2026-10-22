@@ -85,22 +85,37 @@ Participants still **never sign in**. Only players who open your **live link** (
 
 One row per player per session: nickname, avatar, language, XP, levels done, per-topic scores, the IDs of missed questions, and (if filled in) the idea card and feedback. No real names, emails, IP addresses or device data. The API cleans and size-limits everything it receives.
 
-### One-time setup in Azure (about 10 minutes)
+### One-time setup in Azure (Entra ID recommended)
 
 1. **Create a storage account.** In the Azure portal, search for **Storage accounts** and click **+ Create**.
    - Same resource group as the Static Web App, region **Germany West Central** (keeps the data in Germany; if Azure refuses the region, pick another EU region such as *Sweden Central*), **Performance: Standard**, **Redundancy: LRS** (cheapest).
    - Review + create.
-2. **Copy its connection string.** Open the storage account, then **Security + networking → Access keys**, then **Show** next to *Connection string* (key1), and copy it.
-3. **Add two settings to the Static Web App.** Open your Static Web App, then **Settings → Environment variables**, then **Production**, then **+ Add**:
+2. **Register a backend identity.** In **Microsoft Entra ID → App registrations**, create a single-tenant app, without a redirect URI. Record its application/client ID and directory/tenant ID. Create a client secret under **Certificates & secrets**, and record its expiry for rotation.
+3. **Grant access to this storage account only.** On the storage account, open **Access control (IAM)** and assign **Storage Table Data Contributor** to the app's service principal. Do not grant subscription-wide access or an Owner role. Role changes can take several minutes to propagate.
+4. **Add the API settings.** Open your Static Web App, then **Settings → Environment variables**, then **Production**, then **+ Add**:
    | Name | Value |
    |---|---|
-   | `RESULTS_STORAGE` | the connection string from step 2 |
+   | `RESULTS_STORAGE_AUTH` | `entra` |
+   | `RESULTS_STORAGE_ACCOUNT` | the storage account name |
+   | `AZURE_TENANT_ID` | the directory/tenant ID |
+   | `AZURE_CLIENT_ID` | the application/client ID |
+   | `AZURE_CLIENT_SECRET` | the client secret **value**, not its ID |
    | `TRAINER_KEY` | a password of your choice, **at least 10 characters**. You type it on the dashboard. |
    Click **Apply**.
-4. **Confirm API deployment is enabled.** The included Azure workflow already sets `api_location: "api"`; keep that setting when updating the workflow.
-5. After the deployment turns green, open `https://<your-site>/dashboard.html`, enter your trainer key, and start a session.
+5. **Confirm API deployment is enabled.** The included Azure workflow already sets `api_location: "api"`; keep that setting when updating the workflow.
+6. After the deployment turns green, open `https://<your-site>/dashboard.html`, enter your trainer key, and start a session. The API creates `csqSettings`, `csqSessions` and `csqResults` automatically; no manual columns or schema are needed.
 
-The API runs on the managed Functions that come with the Free Static Web Apps plan (Node 20, configured in `staticwebapp.config.json`). It has **no npm dependencies**: it talks to Table Storage directly with the storage key.
+The API runs on the managed Functions that come with the Free Static Web Apps plan (Node 22, configured in `staticwebapp.config.json`). It uses `@azure/identity` to acquire and refresh Entra tokens for the Table Storage REST API. Managed Static Web Apps functions do not support managed identity, so this hosting option needs a backend app credential. Participants still never sign in, and no credential is sent to their browsers.
+
+**Keep Shared Key authentication disabled.** Entra mode does not use or fall back to a storage account key. Remove the old `RESULTS_STORAGE` setting after migration. The current managed API must be able to reach the account's authenticated public Table endpoint; if policy blocks public network access, obtain an approved account-specific network exception or use a separately hosted private-network API. Public networking does not enable anonymous access.
+
+**Rotate the app credential before it expires.** Create a replacement secret on the same app, update `AZURE_CLIENT_SECRET` in the production API settings, confirm the dashboard works, then remove the old credential. Store secrets only in Azure settings, never in GitHub source, browser JavaScript, or chat.
+
+An Azure Policy exemption does not prevent independent governance automation from disabling account keys. Entra authentication avoids relying on that setting.
+
+#### Legacy Shared Key setup
+
+Where account-key authentication is permitted, set `RESULTS_STORAGE_AUTH=shared-key` (the default when unset), `RESULTS_STORAGE` to the account connection string, and `TRAINER_KEY` as above. Explicit `TableEndpoint` values remain supported for the local simulator. Do not enable Shared Key or weaken tenant policies just to use this legacy mode.
 
 ### Running a live session
 
@@ -128,9 +143,11 @@ The Free Static Web Apps plan has no bandwidth overage charges. Table Storage co
 ### Test it locally (no Azure needed)
 
 ```bash
+npm ci --prefix api
+npm test --prefix api
 node tools/dev-server.js
 ```
-Open http://localhost:4280/dashboard.html (trainer key `trainer-demo-key`). The dev server runs the real API code against an in-memory Table Storage simulator (`tools/table-sim.js`), so data is lost when you stop it. The `tools/` folder isn't served on Azure.
+Open http://localhost:4280/dashboard.html (trainer key `trainer-demo-key`). With no Azure storage/authentication settings in the local environment, the dev server runs the real API code against an in-memory Table Storage simulator (`tools/table-sim.js`), so data is lost when you stop it. The `tools/` folder isn't served on Azure.
 
 ## Editing the content (no coding)
 
